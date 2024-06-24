@@ -24,21 +24,10 @@
     <section class="services-details pt-130 pb-120">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <div class="services-thumb-img mb-50 wow fadeInLeft" data-wow-delay=".4s">
-                        <img src="/assets/img/services/services-thumb-07.jpg" alt="services-thumb">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="services-thumb-img mb-50 wow fadeInRight" data-wow-delay=".4s">
-                        <img src="/assets/img/services/services-thumb-08.jpg" alt="services-thumb">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-lg-12">
                     <div class="tp-srv-process mb-50">
-                        <h4 class="tp-srv-process__title mb-30">{{ $service->name }}</h4>
+                        <h4 class="tp-srv-process__title mb-30"
+                            style=" word-wrap: break-word; word-break: break-word;">{{ $service->name }}</h4>
                         {!! $service->description !!}
                     </div>
                 </div>
