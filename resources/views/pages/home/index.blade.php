@@ -16,7 +16,7 @@
                         </p>
                         <div class="banner__btn">
                             <a class="tp-btn" href="contact.html">Записаться на прием</a>
-                            <a class="tp-btn-second ml-25" href="about.html">Подробнее</a>
+                            <a class="tp-btn-second ml-25" href="{{ route('about.index') }}">Подробнее</a>
                         </div>
                     </div>
                     <div class="banner__box-item">
@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="banner__shape d-none d-lg-block">
-            <img src="/assets/img/head_image.png" alt="banner-img"/>
+            <img src="/images/clinic_01.png" alt="banner-img"/>
         </div>
     </section>
     <!-- banner-area-end -->
@@ -102,7 +102,11 @@
                             <div class="swiper-slide">
                                 <div class="services-item mb-40">
                                     <div class="services-item__icon mb-30">
-                                        <i class="flaticon-hemoglobin-test-meter"></i>
+                                        @if($service->type === 'diagnostic')
+                                            <i class="flaticon-blood-test"></i>
+                                        @else
+                                            <i class="flaticon-biochemistry"></i>
+                                        @endif
                                     </div>
                                     <div class="services-item__content">
                                         <h4 class="services-item__tp-title mb-30">
@@ -223,13 +227,13 @@
                             <div class="tp-gallery__item p-relative mb-70">
                                 <div class="tp-gallery__img p-relative">
                                     <img
-                                        src="/assets/img/gallery/gal-thum-01.jpg"
+                                        src="/images/clinic_02.png"
                                         alt="gallery-img"
                                     />
                                     <div class="tp-gallery__info">
                                         <a
                                             class="popup-image"
-                                            href="/assets/img/gallery/gal-thum-01.jpg"
+                                            href="/images/clinic_02.png"
                                         ><i class="fa-solid fa-plus"></i
                                             ></a>
                                     </div>
@@ -245,13 +249,13 @@
                             <div class="tp-gallery__item p-relative mb-70">
                                 <div class="tp-gallery__img p-relative">
                                     <img
-                                        src="/assets/img/gallery/gal-thum-02.jpg"
+                                        src="/images/clinic_03.png"
                                         alt="gallery-img"
                                     />
                                     <div class="tp-gallery__info">
                                         <a
                                             class="popup-image"
-                                            href="/assets/img/gallery/gal-thum-02.jpg"
+                                            href="/images/clinic_03.png"
                                         ><i class="fa-solid fa-plus"></i
                                             ></a>
                                     </div>
@@ -267,57 +271,13 @@
                             <div class="tp-gallery__item p-relative mb-70">
                                 <div class="tp-gallery__img p-relative">
                                     <img
-                                        src="/assets/img/gallery/gal-thum-03.jpg"
+                                        src="/images/clinic_04.png"
                                         alt="gallery-img"
                                     />
                                     <div class="tp-gallery__info">
                                         <a
                                             class="popup-image"
-                                            href="/assets/img/gallery/gal-thum-03.jpg"
-                                        ><i class="fa-solid fa-plus"></i
-                                            ></a>
-                                    </div>
-                                </div>
-                                <div class="tp-gallery__content">
-                                    <h4 class="tp-gallery__title">
-                                        <span>Название</span>
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tp-gallery__item p-relative mb-70">
-                                <div class="tp-gallery__img p-relative">
-                                    <img
-                                        src="/assets/img/gallery/gal-thum-04.jpg"
-                                        alt="gallery-img"
-                                    />
-                                    <div class="tp-gallery__info">
-                                        <a
-                                            class="popup-image"
-                                            href="/assets/img/gallery/gal-thum-04.jpg"
-                                        ><i class="fa-solid fa-plus"></i
-                                            ></a>
-                                    </div>
-                                </div>
-                                <div class="tp-gallery__content">
-                                    <h4 class="tp-gallery__title">
-                                        <span>Название</span>
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tp-gallery__item p-relative mb-70">
-                                <div class="tp-gallery__img p-relative">
-                                    <img
-                                        src="/assets/img/gallery/gal-thum-05.jpg"
-                                        alt="gallery-img"
-                                    />
-                                    <div class="tp-gallery__info">
-                                        <a
-                                            class="popup-image"
-                                            href="/assets/img/gallery/gal-thum-01.jpg"
+                                            href="/images/clinic_04.png"
                                         ><i class="fa-solid fa-plus"></i
                                             ></a>
                                     </div>
@@ -333,15 +293,6 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-12">
-                    <a class="tp-btn-second" href="portfolio-details.html"
-                    >Посмотреть остальное</a
-                    >
-                </div>
-            </div>
-        </div>
     </section>
     <!-- gallery-area-end -->
 
@@ -351,7 +302,7 @@
             <div class="row">
                 <div class="col-xxl-6 col-xl-5 col-lg-12 col-md-12 p-0">
                     <div class="appoinment-thumb">
-                        <img src="/assets/img/appoinment-01.jpg" alt="appoinment-img"/>
+                        <img src="/images/online_01.png" alt="appoinment-img"/>
                     </div>
                 </div>
                 <div class="col-xxl-6 col-xl-7 col-lg-12 col-md-12 p-0">
@@ -437,7 +388,7 @@
                     <div class="swiper-slide">
                         <div class="tp-team mb-50">
                             <div class="tp-team__thumb fix">
-                                <a href="#"><img src="/assets/img/team/team-thumb-01.jpg" alt="team-thumb"/></a>
+                                <a href="#"><img src="/images/team_01.png" alt="team-thumb"/></a>
                             </div>
                             <div class="tp-team__content">
                                 <h4 class="tp-team__title mb-15">
@@ -461,7 +412,7 @@
                     <div class="swiper-slide">
                         <div class="tp-team mb-50">
                             <div class="tp-team__thumb fix">
-                                <a href="#"><img src="/assets/img/team/team-thumb-01.jpg" alt="team-thumb"/></a>
+                                <a href="#"><img src="/images/team_02.png" alt="team-thumb"/></a>
                             </div>
                             <div class="tp-team__content">
                                 <h4 class="tp-team__title mb-15">
@@ -485,7 +436,7 @@
                     <div class="swiper-slide">
                         <div class="tp-team mb-50">
                             <div class="tp-team__thumb fix">
-                                <a href="#"><img src="/assets/img/team/team-thumb-01.jpg" alt="team-thumb"/></a>
+                                <a href="#"><img src="/images/team_03.png" alt="team-thumb"/></a>
                             </div>
                             <div class="tp-team__content">
                                 <h4 class="tp-team__title mb-15">

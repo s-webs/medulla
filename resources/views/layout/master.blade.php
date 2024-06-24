@@ -83,15 +83,15 @@
                             <nav id="mobile-menu">
                                 <ul>
                                     <li><a href="{{route('home')}}">Главная</a></li>
-                                    <li class="has-dropdown"><a href="##">О клинике</a>
+                                    <li class="has-dropdown"><a href="{{route('about.index')}}">О клинике</a>
                                         <ul class="sub-menu">
                                             <li><a href="{{route('home')}}">Центр коррекционных занятий</a></li>
                                             <li><a href="about.html">Иностранным и приехжим пациентам</a></li>
                                             <li><a href="about.html">Отзывы</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="{{route('home')}}">Услуги</a></li>
-                                    <li><a href="{{route('home')}}">Контакты</a></li>
+                                    <li><a href="{{route('service.index')}}">Услуги</a></li>
+                                    <li><a href="{{route('contacts.index')}}">Контакты</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -229,12 +229,12 @@
                         <h4 class="footer-widget__title mb-20">Полезные ссылки</h4>
                         <div class="footer-widget__links">
                             <ul>
-                                <li><a href="##">О клинике</a></li>
-                                <li><a href="##">Услуги</a></li>
+                                <li><a href="{{ route('about.index') }}">О клинике</a></li>
+                                <li><a href="{{ route('service.index') }}">Услуги</a></li>
                                 <li><a href="##">Центр коррекционных занятий</a></li>
                                 <li><a href="##">Иностранным и приезжим пациентам</a></li>
                                 <li><a href="##">Отзывы</a></li>
-                                <li><a href="##">Контакты</a></li>
+                                <li><a href="{{route('contacts.index')}}">Контакты</a></li>
                             </ul>
                         </div>
                     </div>

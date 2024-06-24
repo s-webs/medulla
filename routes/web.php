@@ -14,4 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about.index');
+Route::get('/services', [\App\Http\Controllers\ServicesController::class, 'index'])->name('service.index');
 Route::get('/services/{slug}', [\App\Http\Controllers\ServicesController::class, 'show'])->name('service.show');
+Route::get('/contacts', [\App\Http\Controllers\ContactsController::class, 'index'])->name('contacts.index');
