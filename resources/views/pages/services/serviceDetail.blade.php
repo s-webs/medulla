@@ -7,7 +7,8 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-md-12 col-12">
                     <div class="tp-breadcrumb">
-                        <h2 class="tp-breadcrumb__title">{{$service->name}}</h2>
+                        <h2 class="tp-breadcrumb__title"
+                            style="word-wrap: break-word; overflow-wrap: break-word; word-break: break-word; white-space: normal;">{{$service->name}}</h2>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-5 col-md-12 col-12">
@@ -27,7 +28,7 @@
                 <div class="col-lg-12">
                     <div class="tp-srv-process mb-50">
                         <h4 class="tp-srv-process__title mb-30"
-                            style="font-size: calc(1em + (1.5 - 1) * ((100vw - 400px) / (800 - 400)));">{{ $service->name }}</h4>
+                            style="word-wrap: break-word; overflow-wrap: break-word; word-break: break-word; white-space: normal;">{{ $service->name }}</h4>
                         {!! $service->description !!}
                     </div>
                 </div>
