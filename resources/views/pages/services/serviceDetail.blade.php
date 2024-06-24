@@ -27,7 +27,7 @@
                 <div class="col-lg-12">
                     <div class="tp-srv-process mb-50">
                         <h4 class="tp-srv-process__title mb-30"
-                            style=" word-wrap: break-word; word-break: break-word;">{{ $service->name }}</h4>
+                            style="font-size: calc(1em + (1.5 - 1) * ((100vw - 400px) / (800 - 400)));">{{ $service->name }}</h4>
                         {!! $service->description !!}
                     </div>
                 </div>
