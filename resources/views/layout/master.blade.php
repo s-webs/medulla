@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="/assets/css/flaticon.css"/>
     <link rel="stylesheet" href="/assets/css/spacing.css"/>
     <link rel="stylesheet" href="/assets/css/style.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    @stack('styles')
 </head>
 <body>
 
@@ -299,5 +301,6 @@
 <script src="/assets/js/meanmenu.js"></script>
 <script src="/assets/js/ajax-form.js"></script>
 <script src="/assets/js/main.js"></script>
+@stack('scripts')
 </body>
 </html>
