@@ -7,6 +7,7 @@ namespace App\MoonShine\Resources;
 use App\Models\Doctor;
 use Illuminate\Database\Eloquent\Model;
 
+use MoonShine\Fields\Color;
 use MoonShine\Fields\Number;
 use MoonShine\Fields\Select;
 use MoonShine\Fields\Switcher;
@@ -32,6 +33,11 @@ class DoctorsResource extends ModelResource
 
     protected bool $detailInModal = true;
 
+    public function redirectAfterSave(): string
+    {
+        return '/crm/resource/doctors-resource/index-page';
+    }
+
     /**
      * @return list<MoonShineComponent|Field>
      */
@@ -49,6 +55,7 @@ class DoctorsResource extends ModelResource
                     ]),
                 Text::make('Город', 'city'),
                 Text::make('Кабинет специалиста', 'cabinet'),
+                Color::make('Цвет для календаря', 'color'),
                 Number::make('Продолжительность приема (в минутах)', 'reception_time'),
                 Switcher::make('Активен ли специалист для записи', 'active')
                     ->default(true)

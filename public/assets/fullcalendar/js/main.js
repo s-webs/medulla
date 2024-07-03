@@ -1,4 +1,5 @@
 let activeInactiveWeekends = true;
+
 $(document).ready(function () {
     // Установка CSRF токена для всех AJAX запросов
     $.ajaxSetup({
@@ -10,6 +11,7 @@ $(document).ready(function () {
     var calendar = $("#calendar").fullCalendar({
         locale: "ru",
         timezone: "local",
+        initialView: 'dayGridMonth',
         nextDayThreshold: "09:00:00",
         allDaySlot: true,
         displayEventTime: true,
@@ -20,7 +22,7 @@ $(document).ready(function () {
         weekNumberCalculation: "ISO",
         eventLimit: true,
         views: {
-            month: { eventLimit: 12 },
+            month: {eventLimit: 12},
         },
         eventLimitClick: "week",
         navLinks: true,
@@ -31,7 +33,7 @@ $(document).ready(function () {
         minTime: "09:00:00",
         maxTime: "17:30:00",
         slotLabelFormat: "HH:mm",
-        weekends: true,
+        weekends: activeInactiveWeekends,
         nowIndicator: true,
         dayPopoverFormat: "MM/DD dddd",
         longPressDelay: 0,
@@ -60,16 +62,13 @@ $(document).ready(function () {
             },
         },
         customButtons: {
-            //주말 숨기기 & 보이기 버튼
             viewWeekends: {
                 text: "Выходные",
                 click: function () {
-                    activeInactiveWeekends
-                        ? (activeInactiveWeekends = false)
-                        : (activeInactiveWeekends = true)
+                    activeInactiveWeekends = !activeInactiveWeekends;
                     $("#calendar").fullCalendar("option", {
                         weekends: activeInactiveWeekends,
-                    })
+                    });
                 },
             },
         },
@@ -89,14 +88,8 @@ $(document).ready(function () {
                     class: "popoverInfoCalendar",
                 })
                     .append("<p><strong>Пациент:</strong> " + event.name + "</p>")
-                    .append(
-                        "<p><strong>Время:</strong> " + getDisplayEventDate(event) + "</p>"
-                    )
-                    .append(
-                        '<div class="popoverDescCalendar"><strong>Описание:</strong> ' +
-                        event.description +
-                        "</div>"
-                    ),
+                    .append("<p><strong>Время:</strong> " + getDisplayEventDate(event) + "</p>")
+                    .append('<div class="popoverDescCalendar"><strong>Описание:</strong> ' + event.description + "</div>"),
                 delay: {
                     show: "800",
                     hide: "50",
@@ -116,8 +109,8 @@ $(document).ready(function () {
                     console.log('События, полученные с сервера:', response);
 
                     var fixedDate = response.map(function (event) {
-                        event.start = moment(event.time_start, 'YYYY-MM-DDTHH:mm:ss').toISOString();
-                        event.end = moment(event.time_end, 'YYYY-MM-DDTHH:mm:ss').toISOString();
+                        event.start = moment(event.time_start).toISOString();
+                        event.end = moment(event.time_end).toISOString();
                         return event;
                     });
 
@@ -178,7 +171,7 @@ $(document).ready(function () {
         },
 
         select: function (startDate, endDate, jsEvent, view) {
-            $('#edit-start').val(moment(startDate).format('YYYY-MM-DD'));
+            $('#edit-start').val(moment(startDate).format('YYYY-MM-DDTHH:mm:ss'));
             $('#eventModal').modal('show');
 
             var doctorId = $('#doctor-id').val();
@@ -186,8 +179,8 @@ $(document).ready(function () {
 
             $('#save-event').off('click').on('click', function () {
                 var doctorId = $('#doctor-id').val();
-                var selectedTime = $('#time-select').val();
-                var start = moment($('#edit-start').val() + 'T' + selectedTime, 'YYYY-MM-DDTHH:mm');
+                var selectedTime = $('#edit-start').val();
+                var start = moment(selectedTime, 'YYYY-MM-DDTHH:mm:ss');
 
                 $.ajax({
                     type: 'GET',
@@ -216,7 +209,6 @@ $(document).ready(function () {
                                 name: eventData.name,
                                 phone: eventData.phone,
                                 email: eventData.email,
-                                date: start.format('YYYY-MM-DDTHH:mm:ss'),
                                 time_start: start.format('YYYY-MM-DDTHH:mm:ss'),
                                 time_end: end.format('YYYY-MM-DDTHH:mm:ss'),
                                 status: eventData.status,
@@ -252,8 +244,8 @@ $(document).ready(function () {
 
             $('#update-event').off('click').on('click', function () {
                 var doctorId = $('#edit-doctor-id').val();
-                var selectedTime = $('#edit-time-select').val();
-                var start = moment($('#edit-start-date').val() + 'T' + selectedTime, 'YYYY-MM-DDTHH:mm');
+                var selectedTime = $('#edit-start-date').val() + 'T' + $('#edit-time-select').val();
+                var start = moment(selectedTime, 'YYYY-MM-DDTHH:mm:ss');
 
                 $.ajax({
                     type: 'GET',
@@ -279,7 +271,6 @@ $(document).ready(function () {
                                 name: event.name,
                                 phone: event.phone,
                                 email: event.email,
-                                date: start.format('YYYY-MM-DDTHH:mm:ss'),
                                 time_start: start.format('YYYY-MM-DDTHH:mm:ss'),
                                 time_end: end.format('YYYY-MM-DDTHH:mm:ss'),
                                 status: event.status,
@@ -302,7 +293,7 @@ $(document).ready(function () {
         },
 
         dayClick: function (date, jsEvent, view) {
-            $('#edit-start').val(date.format('YYYY-MM-DD'));
+            $('#edit-start').val(date.format('YYYY-MM-DDTHH:mm:ss'));
             $('#eventModal').modal('show');
 
             var doctorId = $('#doctor-id').val();

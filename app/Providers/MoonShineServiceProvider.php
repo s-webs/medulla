@@ -58,7 +58,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 ->blank(),
             MenuItem::make('Услуги', new ServicesResource()),
             MenuItem::make('Врачи для записи', new DoctorsResource()),
-            MenuItem::make('Записи', '/entries/')->blank()
+            MenuItem::make('Календарь записей', '/calendar')->blank()
         ];
     }
 

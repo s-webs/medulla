@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use App\Models\Entry;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class EntryController extends Controller
@@ -28,52 +29,75 @@ class EntryController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'doctor_id' => 'required|exists:doctors,id',
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
-            'email' => 'nullable|email|max:255',
-            'date' => 'required',
-            'time_start' => 'required',
-            'time_end' => 'required',
-            'status' => 'required|string|max:255',
-        ]);
+        $doctorId = $request->input('doctor_id');
+        $name = $request->input('name');
+        $phone = $request->input('phone');
+        $email = $request->input('email');
+        $status = $request->input('status');
+        $timeStart = Carbon::createFromFormat('Y-m-d H:i:s', $request->input('start'));
 
+        // Получаем время приема врача в минутах
+        $doctor = Doctor::findOrFail($doctorId);
+        $receptionTime = $doctor->reception_time;
+
+        // Рассчитываем время окончания приема
+        $timeEnd = $timeStart->copy()->addMinutes($receptionTime);
+
+        // Проверяем наличие пересекающихся записей
+        $existingEntries = Entry::where('doctor_id', $doctorId)
+            ->where(function ($query) use ($timeStart, $timeEnd) {
+                $query->where(function ($query) use ($timeStart, $timeEnd) {
+                    $query->where('start', '<', $timeEnd)
+                        ->where('end', '>', $timeStart);
+                });
+            })
+            ->count();
+
+        if ($existingEntries > 0) {
+            return response()->json(['message' => 'Time slot already taken'], 409);
+        }
+
+        // Создаем новую запись
         $entry = new Entry();
-        $entry->doctor_id = $validatedData['doctor_id'];
-        $entry->name = $validatedData['name'];
-        $entry->phone = $validatedData['phone'];
-        $entry->email = $validatedData['email'];
-        $entry->date = $validatedData['date'];
-        $entry->time_start = $validatedData['time_start'];
-        $entry->time_end = $validatedData['time_end'];
-        $entry->status = $validatedData['status'];
+        $entry->doctor_id = $doctorId;
+        $entry->name = $name;
+        $entry->phone = $phone;
+        $entry->email = $email;
+        $entry->start = $timeStart;
+        $entry->end = $timeEnd;
+        $entry->status = $status;
         $entry->save();
 
-        return response()->json(['success' => true, 'entry' => $entry], 201);
+        return response()->json(['message' => 'Appointment created successfully']);
     }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
     {
-        $entry = Entry::query()->findOrFail($id);
+        $entry = Entry::findOrFail($id);
 
-        $validatedData = $request->validate([
-            'doctor_id' => 'required|exists:doctors,id',
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
-            'email' => 'nullable|email|max:255',
-            'date' => 'required',
-            'time_start' => 'required',
-            'time_end' => 'required',
-            'status' => 'required|string|max:255',
-        ]);
+        // Обновление данных записи
+        $entry->doctor_id = $request->input('doctor_id');
+        $entry->name = $request->input('name');
+        $entry->phone = $request->input('phone');
+        $entry->email = $request->input('email');
 
-        $entry->update($request->all());
-        return response()->json($entry);
+        $start = Carbon::createFromFormat('Y-m-d H:i:s', $request->input('start'));
+        $entry->start = $start;
+
+        // Найти врача и установить время окончания на основе времени приема
+        $doctor = Doctor::findOrFail($request->input('doctor_id'));
+        $end = $start->copy()->addMinutes($doctor->reception_time);
+        $entry->end = $end;
+
+        $entry->save();
+
+        return response()->json(['message' => 'Запись успешно обновлена']);
     }
+
 
     public function destroy($id)
     {

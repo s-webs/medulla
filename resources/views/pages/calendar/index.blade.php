@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/assets/fullcalendar/css/main.css">
-    <title>Document</title>
+    <title>Календарь</title>
 </head>
 <body>
 <div class="container">
@@ -112,7 +112,8 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <label class="col-xs-4" for="edit-phone">Телефон</label>
-                            <input class="inputModal" type="text" name="edit-phone" id="edit-phone" required="required"/>
+                            <input class="inputModal" type="text" name="edit-phone" id="edit-phone"
+                                   required="required"/>
                         </div>
                     </div>
                     <div class="row">

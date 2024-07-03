@@ -20,9 +20,10 @@ Route::get('/services', [\App\Http\Controllers\ServicesController::class, 'index
 Route::get('/services/{slug}', [\App\Http\Controllers\ServicesController::class, 'show'])->name('service.show');
 Route::get('/contacts', [\App\Http\Controllers\ContactsController::class, 'index'])->name('contacts.index');
 Route::resource('/calendar', \App\Http\Controllers\CalendarController::class);
+Route::resource('/calendar-2', \App\Http\Controllers\CalendarController::class);
 Route::get('/get-events', [\App\Http\Controllers\CalendarController::class, 'getEvents'])->name('calendar.get-events');
 Route::get('/get-available-times', [\App\Http\Controllers\CalendarController::class, 'getAvailableTimes'])->name('calendar.get-events');
-
+Route::get('/recent-entries', [\App\Http\Controllers\CalendarController::class, 'recentEntries']);
 Route::get('/entries', [EntryController::class, 'index']);
 Route::post('/entries', [EntryController::class, 'store']);
 Route::get('/entries/{id}', [EntryController::class, 'show']);

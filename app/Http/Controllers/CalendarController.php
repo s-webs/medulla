@@ -17,7 +17,7 @@ class CalendarController extends Controller
     {
         $doctors = Doctor::all();
 
-        return view('pages.calendar.index', compact('doctors'));
+        return view('pages.calendar.index-2', compact('doctors'));
     }
 
     public function getEvents(Request $request)
@@ -56,47 +56,62 @@ class CalendarController extends Controller
         $receptionTime = Doctor::query()->find($doctorId)->reception_time;
 
         try {
-            $start = Carbon::createFromFormat('Y-m-d H:i', $date . ' 09:00');
-            $end = Carbon::createFromFormat('Y-m-d H:i', $date . ' 17:30');
+            $start = Carbon::createFromFormat('Y-m-d H:i:s', $date . ' 09:00:00');
+            $end = Carbon::createFromFormat('Y-m-d H:i:s', $date . ' 17:30:00');
         } catch (\Exception $e) {
             return response()->json(['error' => 'Invalid date format: ' . $e->getMessage()], 400);
         }
 
         $existingEntries = Entry::query()->where('doctor_id', $doctorId)
-            ->whereDate('date', $date)
-            ->orderBy('time_start')
+            ->whereDate('start', $date)
+            ->orderBy('start')
             ->get();
 
+        $now = Carbon::now();
         $availableTimes = [];
+
         while ($start->lt($end)) {
             $available = true;
+
+            if ($start->lt($now)) {
+                $start->addMinutes($receptionTime);
+                continue;
+            }
+
             foreach ($existingEntries as $entry) {
-                try {
-                    // Выводим данные для отладки
-                    Log::info('Entry start: ' . $entry->time_start);
-                    Log::info('Entry end: ' . $entry->time_end);
-
-                    // Попробуем форматировать date_time
-                    $entryStart = Carbon::createFromFormat('H:i', $entry->time_start);
-                    $entryEnd = Carbon::createFromFormat('H:i', $entry->time_end);
-                } catch (\Exception $e) {
-                    return response()->json(['error' => 'Invalid entry date format: ' . $e->getMessage()], 400);
-                }
-
-                if ($start->between($entryStart, $entryEnd, true)) {
+                if ($start->between($entry->start, $entry->end, true)) {
                     $available = false;
                     break;
                 }
             }
+
             if ($available) {
                 $availableTimes[] = $start->format('H:i');
             }
+
             $start->addMinutes($receptionTime);
         }
 
         return response()->json(['available_times' => $availableTimes]);
     }
 
+
+    public function recentEntries()
+    {
+        $entries = Entry::with('doctor')
+            ->orderBy('start', 'desc')
+            ->take(5)
+            ->get()
+            ->map(function ($entry) {
+                return [
+                    'start' => Carbon::parse($entry->start)->format('d-m-Y H:i'),
+                    'doctor_name' => $entry->doctor->name,
+                    'name' => $entry->name,
+                ];
+            });
+
+        return response()->json($entries);
+    }
 
 
     /**
