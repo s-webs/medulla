@@ -21,6 +21,8 @@ Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->n
 Route::get('/services', [\App\Http\Controllers\ServicesController::class, 'index'])->name('service.index');
 Route::get('/services/{slug}', [\App\Http\Controllers\ServicesController::class, 'show'])->name('service.show');
 Route::get('/contacts', [\App\Http\Controllers\ContactsController::class, 'index'])->name('contacts.index');
+Route::get('/appointment', [\App\Http\Controllers\AppointmentController::class, 'index'])->name('appointment.index');
+Route::get('/appointment-single', [\App\Http\Controllers\AppointmentController::class, 'single'])->name('appointment.single');
 
 
 // API для записей

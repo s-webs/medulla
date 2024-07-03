@@ -86,7 +86,7 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="header-cart-order d-flex align-items-center justify-content-end">
-                            <a class="header-bottom-btn" href="about.html">Записаться на прием</a>
+                            <a class="header-bottom-btn" href="{{ route('appointment.index') }}">Записаться на прием</a>
                         </div>
                     </div>
                 </div>
@@ -145,7 +145,7 @@
     <div class="mobile-menu"></div>
 
     <div class="tpsideinfo__content mb-60"></div>
-    
+
     <div class="tpsideinfo__socialicon">
         <a href="#"><i class="fa-brands fa-youtube"></i></a>
         <a href="#"><i class="fa-brands fa-twitter"></i></a>

@@ -99,7 +99,7 @@ class CalendarController extends Controller
     public function recentEntries()
     {
         $entries = Entry::with('doctor')
-            ->orderBy('start', 'desc')
+            ->orderBy('created_at', 'desc')
             ->take(5)
             ->get()
             ->map(function ($entry) {

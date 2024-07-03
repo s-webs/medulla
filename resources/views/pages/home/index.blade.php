@@ -15,7 +15,7 @@
                             улучшению качества жизни
                         </p>
                         <div class="banner__btn">
-                            <a class="tp-btn" href="contact.html">Записаться на прием</a>
+                            <a class="tp-btn" href="{{route('appointment.index')}}">Записаться на прием</a>
                             <a class="tp-btn-second ml-25" href="{{ route('about.index') }}">Подробнее</a>
                         </div>
                     </div>
