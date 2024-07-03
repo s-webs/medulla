@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="/assets/css/flaticon.css"/>
     <link rel="stylesheet" href="/assets/css/spacing.css"/>
     <link rel="stylesheet" href="/assets/css/style.css"/>
-    <script src="https://cdn.tailwindcss.com"></script>
     @stack('styles')
 </head>
 <body>
@@ -54,21 +53,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <div class="header-top-mob">
-                            <svg width="14" height="19" viewBox="0 0 14 19" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="2" cy="2" r="2" fill="#0E63FF"/>
-                                <circle cx="7" cy="2" r="2" fill="#0E63FF"/>
-                                <circle cx="12" cy="2" r="2" fill="#0E63FF"/>
-                                <circle cx="12" cy="7" r="2" fill="#0E63FF"/>
-                                <circle cx="12" cy="12" r="2" fill="#0E63FF"/>
-                                <circle cx="7" cy="7" r="2" fill="#0E63FF"/>
-                                <circle cx="7" cy="12" r="2" fill="#0E63FF"/>
-                                <circle cx="7" cy="17" r="2" fill="#0E63FF"/>
-                                <circle cx="2" cy="7" r="2" fill="#0E63FF"/>
-                                <circle cx="2" cy="12" r="2" fill="#0E63FF"/>
-                            </svg>
                             <span>Консультация:</span>
-                            <a href="tel:+9159008855"> +7 777 777 77 77 </a>
+                            <a href="tel:+7 775 888 10 98"> +7 775 888 10 98</a>
                         </div>
                     </div>
                     <div class="col-lg-8">
@@ -122,7 +108,7 @@
             <div class="col-md-8 col-2">
                 <div class="tp-mobile-bar d-flex align-items-center justify-content-end">
                     <div class="tp-bt-btn-banner d-none d-md-block d-xl-none mr-30">
-                        <a class="tp-bt-btn" href="tel:123456">
+                        <a class="tp-bt-btn" href="tel:+7 775 888 10 98">
                             <svg width="14" height="19" viewBox="0 0 14 19" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="2" cy="2" r="2" fill="#0E63FF"/>
@@ -136,7 +122,7 @@
                                 <circle cx="2" cy="7" r="2" fill="#0E63FF"/>
                                 <circle cx="2" cy="12" r="2" fill="#0E63FF"/>
                             </svg>
-                            <span>Консультация :</span>+7 777 777 77 77
+                            <span>Консультация :</span>+7 775 888 10 98
                         </a>
                     </div>
                     <button class="tp-menu-toggle"><i class="far fa-bars"></i></button>
@@ -159,31 +145,7 @@
     <div class="mobile-menu"></div>
 
     <div class="tpsideinfo__content mb-60"></div>
-    <div class="tpsideinfo__content-inputarea mb-60 d-none d-xl-block">
-        <span>Get Update</span>
-        <div class="tpsideinfo__content-inputarea-input">
-            <form action="#">
-                <input type="email" placeholder="Enter Mail"/>
-                <button class="tpsideinfo__content-inputarea-input-btn">
-                    <i class="fa-solid fa-paper-plane"></i>
-                </button>
-            </form>
-        </div>
-    </div>
-    <div class="tpsideinfo__gallery mb-35 d-none d-xl-block">
-        <span>Cheack Instagram Post</span>
-        <div class="tpsideinfo__gallery-item">
-            <a href="/assets/img/blog/blog-in-01.jpg" class="popup-image"
-            ><img src="/assets/img/blog/blog-in-01.jpg" alt=""
-                /></a>
-            <a href="/assets/img/blog/blog-in-02.jpg" class="popup-image"
-            ><img src="/assets/img/blog/blog-in-02.jpg" alt=""
-                /></a>
-            <a href="/assets/img/blog/blog-in-03.jpg" class="popup-image"
-            ><img src="/assets/img/blog/blog-in-03.jpg" alt=""
-                /></a>
-        </div>
-    </div>
+    
     <div class="tpsideinfo__socialicon">
         <a href="#"><i class="fa-brands fa-youtube"></i></a>
         <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -249,8 +211,8 @@
                         <h4 class="footer-widget__title mb-20">Контактная информация</h4>
                         <div class="footer-widget__info">
                             <ul>
-                                <li>г. Город ул.Улица №1</li>
-                                <li><a href="tel:+77777777777">+7 777 777 77 77</a></li>
+                                <li>г. Шымкент, Аль-Фарабийский район, микрорайон Куншыгыс №52</li>
+                                <li><a href="tel:+7 775 888 10 98">+7 775 888 10 98</a></li>
                                 <li>
                                     <a href="mailto:support@rstheme.com">medulla@medulla.com</a>
                                 </li>

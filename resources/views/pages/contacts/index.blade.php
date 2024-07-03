@@ -31,7 +31,7 @@
                             </div>
                             <div class="tpcontact__address">
                                 <h4 class="tpcontact__title mb-15">Адрес</h4>
-                                <span>г.Шымкент пр. Аль-Фараби 1/1</span>
+                                <span>г. Шымкент, Аль-Фарабийский район, микрорайон Куншыгыс №52</span>
                             </div>
                         </div>
                     </div>
@@ -42,8 +42,7 @@
                             </div>
                             <div class="tpcontact__address">
                                 <h4 class="tpcontact__title mb-15">Контактные номера</h4>
-                                <span><a href="tel:+77777777777">+7 777 777 77 77</a></span>
-                                <span><a href="tel:+77777777777">+7 777 777 77 77</a></span>
+                                <span><a href="tel:+7 775 888 10 98">+7 775 888 10 98</a></span>
                             </div>
                         </div>
                     </div>
@@ -106,7 +105,10 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="tpcontactmap">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d56215.718841453985!2d-0.19959027821222705!3d51.48739183082915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1slondon%20eye!5e0!3m2!1sen!2sbd!4v1656749326947!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d56215.718841453985!2d-0.19959027821222705!3d51.48739183082915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1slondon%20eye!5e0!3m2!1sen!2sbd!4v1656749326947!5m2!1sen!2sbd"
+                                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </div>
                         </div>

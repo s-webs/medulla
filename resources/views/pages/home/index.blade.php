@@ -4,7 +4,7 @@
     <section class="banner-area p-relative pt-90">
         <div class="container">
             <div class="row">
-                <div class="col-xl-8">
+                <div class="col-xl-7">
                     <div class="banner__content pt-145 mb-135">
                         <h2 class="banner__title mb-30">
                             О КЛИНИКЕ И МЕТОДЕ АЛЕКСАНДРЫ МАКСИМОВОЙ

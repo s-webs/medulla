@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\MoonShine\Pages\Calendar;
 use App\MoonShine\Resources\DoctorsResource;
 use App\MoonShine\Resources\ServicesResource;
+use App\MoonShine\Resources\SettingResource;
+use MoonShine\Menu\MenuDivider;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
-use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
 use MoonShine\Resources\MoonShineUserResource;
@@ -58,7 +58,9 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 ->blank(),
             MenuItem::make('Услуги', new ServicesResource()),
             MenuItem::make('Врачи для записи', new DoctorsResource()),
-            MenuItem::make('Календарь записей', '/calendar')->blank()
+            MenuItem::make('Календарь записей', '/calendar')->blank(),
+            MenuDivider::make(),
+            MenuItem::make('Настройки', new SettingResource())
         ];
     }
 
