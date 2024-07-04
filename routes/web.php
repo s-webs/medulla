@@ -29,6 +29,9 @@ Route::get('/appointment-single', [\App\Http\Controllers\AppointmentController::
 Route::get('/get-available-times', [\App\Http\Controllers\CalendarController::class, 'getAvailableTimes'])->name('calendar.get-events');
 Route::post('/entries', [EntryController::class, 'store']);
 Route::get('/doctors/{id}', [EntryController::class, 'doctorShow']);
+Route::get('reference', function () {
+    return view('pages.reference.index');
+})->name('reference.index');
 
 
 // Маршруты доступные только авторизованным

@@ -30,7 +30,7 @@
                                         <i class="flaticon-rating"></i>
                                     </div>
                                     <div class="banner__item-content">
-                                        <span>Наше преимущество</span>
+                                        <span>Разносторонний опыт</span>
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                         <i class="flaticon-target"></i>
                                     </div>
                                     <div class="banner__item-content">
-                                        <span>Наше преимущество</span>
+                                        <span>Индивидуальный подход</span>
                                     </div>
                                 </div>
                             </div>
@@ -223,72 +223,30 @@
             <div class="tp-gallery ml-15 mr-15 wow fadeInUp" data-wow-delay=".4s">
                 <div class="swiper-container gall-active">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="tp-gallery__item p-relative mb-70">
-                                <div class="tp-gallery__img p-relative">
-                                    <img
-                                        src="/images/clinic_02.png"
-                                        alt="gallery-img"
-                                    />
-                                    <div class="tp-gallery__info">
-                                        <a
-                                            class="popup-image"
-                                            href="/images/clinic_02.png"
-                                        ><i class="fa-solid fa-plus"></i
-                                            ></a>
+                        @foreach($gallery as $item)
+                            <div class="swiper-slide">
+                                <div class="tp-gallery__item p-relative mb-70">
+                                    <div class="tp-gallery__img p-relative">
+                                        <img
+                                            src="/{{$item->image}}"
+                                            alt="{{$item->name}}"
+                                        />
+                                        <div class="tp-gallery__info">
+                                            <a
+                                                class="popup-image"
+                                                href="/{{$item->image}}"
+                                            ><i class="fa-solid fa-plus"></i
+                                                ></a>
+                                        </div>
+                                    </div>
+                                    <div class="tp-gallery__content">
+                                        <h4 class="tp-gallery__title">
+                                            <span>{{ $item->name }}</span>
+                                        </h4>
                                     </div>
                                 </div>
-                                <div class="tp-gallery__content">
-                                    <h4 class="tp-gallery__title">
-                                        <span>Название</span>
-                                    </h4>
-                                </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tp-gallery__item p-relative mb-70">
-                                <div class="tp-gallery__img p-relative">
-                                    <img
-                                        src="/images/clinic_03.png"
-                                        alt="gallery-img"
-                                    />
-                                    <div class="tp-gallery__info">
-                                        <a
-                                            class="popup-image"
-                                            href="/images/clinic_03.png"
-                                        ><i class="fa-solid fa-plus"></i
-                                            ></a>
-                                    </div>
-                                </div>
-                                <div class="tp-gallery__content">
-                                    <h4 class="tp-gallery__title">
-                                        <span>Название</span>
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tp-gallery__item p-relative mb-70">
-                                <div class="tp-gallery__img p-relative">
-                                    <img
-                                        src="/images/clinic_04.png"
-                                        alt="gallery-img"
-                                    />
-                                    <div class="tp-gallery__info">
-                                        <a
-                                            class="popup-image"
-                                            href="/images/clinic_04.png"
-                                        ><i class="fa-solid fa-plus"></i
-                                            ></a>
-                                    </div>
-                                </div>
-                                <div class="tp-gallery__content">
-                                    <h4 class="tp-gallery__title">
-                                        <span>Название</span>
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -302,52 +260,27 @@
             <div class="row">
                 <div class="col-xxl-6 col-xl-5 col-lg-12 col-md-12 p-0">
                     <div class="appoinment-thumb">
-                        <img src="/images/online_01.png" alt="appoinment-img"/>
+                        <img src="/images/online_appoinment_medulla_01.png" alt="appoinment-img"/>
                     </div>
                 </div>
                 <div class="col-xxl-6 col-xl-7 col-lg-12 col-md-12 p-0">
                     <div class="visitor-info">
                         <h4 class="appoinment-title mb-25">
-                            <i class="fa-light fa-file-signature"></i>Запишитесь на прием
+                            <i class="fa-light fa-file-signature"></i>Запишитесь на прием Online
                         </h4>
-                        <div class="visitor-form">
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="visitor-form__input">
-                                            <input type="text" placeholder="Ваше ФИО"/>
-                                        </div>
+                        <div class="row">
+                            <div class="visitor-form">
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="visit-btn mt-20">
+                                        <a href="{{ route('appointment.index') }}" class="tp-btn">Ознакомиться с
+                                            тарифами</a>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="visitor-form__input">
-                                            <input type="email" placeholder="Ваша почта"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="visitor-form__input">
-                                            <input type="text" placeholder="Ваш номер телефона"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="visitor-form__input">
-                                            <input type="text" placeholder="д / м / г"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="visitor-form__input">
-													<textarea
-                                                        placeholder="Напишите нам сообщение (необязательно)"
-                                                        name="message"
-                                                    ></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-12">
-                                        <div class="visit-btn mt-20">
-                                            <button class="tp-btn">Отправить</button>
-                                        </div>
+                                    <div class="visit-btn mt-20">
+                                        <a href="{{ route('appointment.single') }}" class="tp-btn">Перейти к форме для
+                                            записи</a>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -385,78 +318,25 @@
                 data-wow-delay=".3s"
             >
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="tp-team mb-50">
-                            <div class="tp-team__thumb fix">
-                                <a href="#"><img src="/images/team_01.png" alt="team-thumb"/></a>
-                            </div>
-                            <div class="tp-team__content">
-                                <h4 class="tp-team__title mb-15">
-                                    <a href="team-details.html">Имя фамилия</a>
-                                </h4>
-                                <span class="tp-team__position mb-30">Специальность</span>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam debitis
-                                    distinctio dolores enim eos facere harum, laboriosam perspiciatis qui quibusdam
-                                    ratione repellat reprehenderit sint sit temporibus tenetur vitae! Ratione.
-                                </p>
-                                <div class="tp-team__social">
-                                    <a class="tp-youtube" href="#"><i class="fa-brands fa-youtube"></i></a>
-                                    <a class="tp-instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    <a class="tp-twitter" href="#"><i class="fa-brands fa-twitter"></i></a>
-                                    <a class="tp-fb" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    @foreach($teams as $team)
+                        <div class="swiper-slide">
+                            <div class="tp-team mb-50">
+                                <div class="tp-team__thumb fix">
+                                    <a href="#">
+                                        <img src="/{{$team->image}}" alt="{{$team->name}}"
+                                             style="object-fit: cover; height: 300px"/>
+                                    </a>
+                                </div>
+                                <div class="tp-team__content">
+                                    <h4 class="tp-team__title mb-15" style="height: 100px">
+                                        <span>{{$team->name}}</span>
+                                    </h4>
+                                    <span class="tp-team__position mb-30">{{$team->speciality}}</span>
+                                    <p>{{ $team->country }}, {{ $team->city }}</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tp-team mb-50">
-                            <div class="tp-team__thumb fix">
-                                <a href="#"><img src="/images/team_02.png" alt="team-thumb"/></a>
-                            </div>
-                            <div class="tp-team__content">
-                                <h4 class="tp-team__title mb-15">
-                                    <a href="team-details.html">Имя фамилия</a>
-                                </h4>
-                                <span class="tp-team__position mb-30">Специальность</span>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam debitis
-                                    distinctio dolores enim eos facere harum, laboriosam perspiciatis qui quibusdam
-                                    ratione repellat reprehenderit sint sit temporibus tenetur vitae! Ratione.
-                                </p>
-                                <div class="tp-team__social">
-                                    <a class="tp-youtube" href="#"><i class="fa-brands fa-youtube"></i></a>
-                                    <a class="tp-instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    <a class="tp-twitter" href="#"><i class="fa-brands fa-twitter"></i></a>
-                                    <a class="tp-fb" href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tp-team mb-50">
-                            <div class="tp-team__thumb fix">
-                                <a href="#"><img src="/images/team_03.png" alt="team-thumb"/></a>
-                            </div>
-                            <div class="tp-team__content">
-                                <h4 class="tp-team__title mb-15">
-                                    <a href="team-details.html">Имя фамилия</a>
-                                </h4>
-                                <span class="tp-team__position mb-30">Специальность</span>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam debitis
-                                    distinctio dolores enim eos facere harum, laboriosam perspiciatis qui quibusdam
-                                    ratione repellat reprehenderit sint sit temporibus tenetur vitae! Ratione.
-                                </p>
-                                <div class="tp-team__social">
-                                    <a class="tp-youtube" href="#"><i class="fa-brands fa-youtube"></i></a>
-                                    <a class="tp-instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    <a class="tp-twitter" href="#"><i class="fa-brands fa-twitter"></i></a>
-                                    <a class="tp-fb" href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@
 @section('content')
     <!-- breadcrumb-area -->
     <section class="breadcrumb__area pt-100 pb-120 breadcrumb__overlay"
-             data-background="/images/online_appointment_page_single.jpg">
+             data-background="/images/medulla_online_appointment_01.png">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-12">
@@ -70,6 +70,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div style="text-align: center">
+            <a href="{{ route('appointment.single') }}" class="tp-btn">Перейти к записи <i
+                    class="fa fa-arrow-right"></i></a>
         </div>
     </section>
     <!-- pricing-area-end -->

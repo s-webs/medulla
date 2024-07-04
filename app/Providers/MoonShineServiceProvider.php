@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\MoonShine\Resources\DoctorsResource;
+use App\MoonShine\Resources\GalleryResource;
 use App\MoonShine\Resources\ServicesResource;
 use App\MoonShine\Resources\SettingResource;
+use App\MoonShine\Resources\TeamResource;
 use MoonShine\Menu\MenuDivider;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\Menu\MenuGroup;
@@ -42,24 +44,17 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     protected function menu(): array
     {
         return [
-            MenuGroup::make(static fn() => __('moonshine::ui.resource.system'), [
-                MenuItem::make(
-                    static fn() => __('moonshine::ui.resource.admins_title'),
-                    new MoonShineUserResource()
-                ),
-                MenuItem::make(
-                    static fn() => __('moonshine::ui.resource.role_title'),
-                    new MoonShineUserRoleResource()
-                ),
-            ]),
-
-            MenuItem::make('Documentation', 'https://moonshine-laravel.com/docs')
-                ->badge(fn() => 'Check')
-                ->blank(),
+            MenuItem::make('Команда', new TeamResource()),
+            MenuItem::make('Галерея', new GalleryResource()),
             MenuItem::make('Услуги', new ServicesResource()),
+            MenuDivider::make(),
             MenuItem::make('Врачи для записи', new DoctorsResource()),
             MenuItem::make('Календарь записей', '/calendar')->blank(),
             MenuDivider::make(),
+            MenuItem::make(
+                static fn() => __('moonshine::ui.resource.admins_title'),
+                new MoonShineUserResource()
+            ),
             MenuItem::make('Настройки', new SettingResource())
         ];
     }
