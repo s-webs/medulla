@@ -23,6 +23,8 @@ Route::get('/services/{slug}', [\App\Http\Controllers\ServicesController::class,
 Route::get('/contacts', [\App\Http\Controllers\ContactsController::class, 'index'])->name('contacts.index');
 Route::get('/appointment', [\App\Http\Controllers\AppointmentController::class, 'index'])->name('appointment.index');
 Route::get('/appointment-single', [\App\Http\Controllers\AppointmentController::class, 'single'])->name('appointment.single');
+Route::get('/blog/', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
 
 
 // API для записей

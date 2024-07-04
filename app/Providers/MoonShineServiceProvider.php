@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\BlogResource;
 use App\MoonShine\Resources\DoctorsResource;
 use App\MoonShine\Resources\GalleryResource;
+use App\MoonShine\Resources\ReviewResource;
 use App\MoonShine\Resources\ServicesResource;
 use App\MoonShine\Resources\SettingResource;
 use App\MoonShine\Resources\TeamResource;
@@ -47,6 +49,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             MenuItem::make('Команда', new TeamResource()),
             MenuItem::make('Галерея', new GalleryResource()),
             MenuItem::make('Услуги', new ServicesResource()),
+            MenuItem::make('Отзывы', new ReviewResource()),
+            MenuItem::make('Блог', new BlogResource()),
             MenuDivider::make(),
             MenuItem::make('Врачи для записи', new DoctorsResource()),
             MenuItem::make('Календарь записей', '/calendar')->blank(),

@@ -109,12 +109,13 @@
                                         @endif
                                     </div>
                                     <div class="services-item__content">
-                                        <h4 class="services-item__tp-title mb-30">
+                                        <h4 class="services-item__tp-title mb-30"
+                                            style="height: 60px; word-break: break-all; font-size: 1.15rem;">
                                             <a href="{{route('service.show', $service->slug)}}">{{ $service->name }}</a>
                                         </h4>
-                                        <p>
-                                            {{ $service->short_description }}
-                                        </p>
+                                        {{--                                        <p>--}}
+                                        {{--                                            {{ $service->short_description }}--}}
+                                        {{--                                        </p>--}}
                                         <div class="services-item__btn">
                                             <a class="btn-hexa" href="{{route('service.show', $service->slug)}}"><i></i>Подробнее</a>
                                         </div>
@@ -130,76 +131,76 @@
     <!-- services-area-end -->
 
     <!-- counter-area -->
-    <section class="counter-area pt-40 pb-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-md-6">
-                    <div
-                        class="counter__item blue-border mb-30 wow fadeInUp"
-                        data-wow-delay=".2s"
-                    >
-                        <div class="counter__icon mb-15">
-                            <i></i>
-                        </div>
-                        <div class="counter__content">
-                            <h4 class="counter__title">
-                                <span class="counter">0</span>
-                            </h4>
-                            <p>Текст</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div
-                        class="counter__item pink-border mb-30 wow fadeInUp"
-                        data-wow-delay=".4s"
-                    >
-                        <div class="counter__icon pink-hard mb-15">
-                            <i></i>
-                        </div>
-                        <div class="counter__content">
-                            <h4 class="counter__title">
-                                <span class="counter">0</span>
-                            </h4>
-                            <p>Текст</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div
-                        class="counter__item sky-border mb-30 wow fadeInUp"
-                        data-wow-delay=".6s"
-                    >
-                        <div class="counter__icon sky-hard mb-15">
-                            <i></i>
-                        </div>
-                        <div class="counter__content">
-                            <h4 class="counter__title">
-                                <span class="counter">0</span>
-                            </h4>
-                            <p>Текст</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div
-                        class="counter__item green-border mb-30 wow fadeInUp"
-                        data-wow-delay=".8s"
-                    >
-                        <div class="counter__icon green-hard mb-15">
-                            <i></i>
-                        </div>
-                        <div class="counter__content">
-                            <h4 class="counter__title">
-                                <span class="counter">0</span>
-                            </h4>
-                            <p>Текст</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {{--    <section class="counter-area pt-40 pb-100">--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-xl-3 col-md-6">--}}
+    {{--                    <div--}}
+    {{--                        class="counter__item blue-border mb-30 wow fadeInUp"--}}
+    {{--                        data-wow-delay=".2s"--}}
+    {{--                    >--}}
+    {{--                        <div class="counter__icon mb-15">--}}
+    {{--                            <i></i>--}}
+    {{--                        </div>--}}
+    {{--                        <div class="counter__content">--}}
+    {{--                            <h4 class="counter__title">--}}
+    {{--                                <span class="counter">0</span>--}}
+    {{--                            </h4>--}}
+    {{--                            <p>Текст</p>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="col-xl-3 col-md-6">--}}
+    {{--                    <div--}}
+    {{--                        class="counter__item pink-border mb-30 wow fadeInUp"--}}
+    {{--                        data-wow-delay=".4s"--}}
+    {{--                    >--}}
+    {{--                        <div class="counter__icon pink-hard mb-15">--}}
+    {{--                            <i></i>--}}
+    {{--                        </div>--}}
+    {{--                        <div class="counter__content">--}}
+    {{--                            <h4 class="counter__title">--}}
+    {{--                                <span class="counter">0</span>--}}
+    {{--                            </h4>--}}
+    {{--                            <p>Текст</p>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="col-xl-3 col-md-6">--}}
+    {{--                    <div--}}
+    {{--                        class="counter__item sky-border mb-30 wow fadeInUp"--}}
+    {{--                        data-wow-delay=".6s"--}}
+    {{--                    >--}}
+    {{--                        <div class="counter__icon sky-hard mb-15">--}}
+    {{--                            <i></i>--}}
+    {{--                        </div>--}}
+    {{--                        <div class="counter__content">--}}
+    {{--                            <h4 class="counter__title">--}}
+    {{--                                <span class="counter">0</span>--}}
+    {{--                            </h4>--}}
+    {{--                            <p>Текст</p>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="col-xl-3 col-md-6">--}}
+    {{--                    <div--}}
+    {{--                        class="counter__item green-border mb-30 wow fadeInUp"--}}
+    {{--                        data-wow-delay=".8s"--}}
+    {{--                    >--}}
+    {{--                        <div class="counter__icon green-hard mb-15">--}}
+    {{--                            <i></i>--}}
+    {{--                        </div>--}}
+    {{--                        <div class="counter__content">--}}
+    {{--                            <h4 class="counter__title">--}}
+    {{--                                <span class="counter">0</span>--}}
+    {{--                            </h4>--}}
+    {{--                            <p>Текст</p>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </section>--}}
     <!-- counter-area-end -->
 
     <!-- gallery-area -->
@@ -343,7 +344,7 @@
     </section>
     <!-- team-area-end -->
 
-    <!-- testimonial-area -->
+    <!-- reviews-start -->
     <section
         class="testimonial-area testimonial-bg pt-125 pb-130"
         data-background="/assets/img/shape/shape-bg-02.png"
@@ -360,96 +361,25 @@
             </div>
             <div class="swiper-container tp-test-active pt-40">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="tp-testi p-relative mb-70">
-                            <div class="tp-testi__avata">
-                                <img
-                                    src="/assets/img/icon/testi-ava-01.jpg"
-                                    alt="testimonial-avata"
-                                />
-                            </div>
-                            <div class="tp-testi__content text-center">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur
-                                    dicta dolore, itaque nisi unde voluptate! Accusamus ad adipisci commodi dicta,
-                                    ducimus et fugiat ipsam, laboriosam maiores maxime nihil quia.
-                                </p>
-                                <h5 class="tp-testi__avata-title">Имя фамилия</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tp-testi p-relative mb-70">
-                            <div class="tp-testi__avata">
-                                <img
-                                    src="/assets/img/icon/testi-ava-01.jpg"
-                                    alt="testimonial-avata"
-                                />
-                            </div>
-                            <div class="tp-testi__content text-center">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur
-                                    dicta dolore, itaque nisi unde voluptate! Accusamus ad adipisci commodi dicta,
-                                    ducimus et fugiat ipsam, laboriosam maiores maxime nihil quia.
-                                </p>
-                                <h5 class="tp-testi__avata-title">Имя фамилия</h5>
+                    @foreach($reviews as $item)
+                        <div class="swiper-slide">
+                            <div class="tp-testi p-relative mb-70">
+                                <div class="tp-testi__content text-center">
+                                    <p>
+                                        {{ Str::limit($item->text, 100)  }}
+                                    </p>
+                                    <div>
+                                        @if(strlen($item->text) > 100)
+                                            <a href="#" class="read-more" data-bs-toggle="modal"
+                                               data-bs-target="#reviewModal" data-text="{{ $item->text }}">
+                                                Прочитать полностью
+                                            </a>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tp-testi p-relative mb-70">
-                            <div class="tp-testi__avata">
-                                <img
-                                    src="/assets/img/icon/testi-ava-01.jpg"
-                                    alt="testimonial-avata"
-                                />
-                            </div>
-                            <div class="tp-testi__content text-center">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur
-                                    dicta dolore, itaque nisi unde voluptate! Accusamus ad adipisci commodi dicta,
-                                    ducimus et fugiat ipsam, laboriosam maiores maxime nihil quia.
-                                </p>
-                                <h5 class="tp-testi__avata-title">Имя фамилия</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tp-testi p-relative mb-70">
-                            <div class="tp-testi__avata">
-                                <img
-                                    src="/assets/img/icon/testi-ava-01.jpg"
-                                    alt="testimonial-avata"
-                                />
-                            </div>
-                            <div class="tp-testi__content text-center">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur
-                                    dicta dolore, itaque nisi unde voluptate! Accusamus ad adipisci commodi dicta,
-                                    ducimus et fugiat ipsam, laboriosam maiores maxime nihil quia.
-                                </p>
-                                <h5 class="tp-testi__avata-title">Имя фамилия</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tp-testi p-relative mb-70">
-                            <div class="tp-testi__avata">
-                                <img
-                                    src="/assets/img/icon/testi-ava-01.jpg"
-                                    alt="testimonial-avata"
-                                />
-                            </div>
-                            <div class="tp-testi__content text-center">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur
-                                    dicta dolore, itaque nisi unde voluptate! Accusamus ad adipisci commodi dicta,
-                                    ducimus et fugiat ipsam, laboriosam maiores maxime nihil quia.
-                                </p>
-                                <h5 class="tp-testi__avata-title">Имя фамилия</h5>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="row text-center">
@@ -467,8 +397,26 @@
                 </div>
             </div>
         </div>
+        <!-- Popup Modal -->
+        <div class="modal modal-xl fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reviewModalLabel">Отзыв</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modalReviewText">
+                        <!-- Здесь будет полный текст отзыва -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <!-- testimonial-area-end -->
+    <!-- reviews-end -->
 
     <!-- blog-area -->
     <section class="blog-area pt-125 pb-100">
@@ -498,109 +446,44 @@
                 data-wow-delay=".3s"
             >
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="tp-blog mb-30">
-                            <div class="tp-blog__thumb p-relative fix">
-                                <a href="#"><img src="/assets/img/blog/blog-thumb-01.jpg" alt="blog-item"/></a>
-                            </div>
-                            <div class="tp-blog__content">
-                                <h5 class="tp-blog__title mb-20">
-                                    <a href="blog-details.html">Заголовок</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi fuga hic illo,
-                                    incidunt modi mollitia quasi totam voluptas? Alias, error, itaque? Aperiam at cumque
-                                    earum exercitationem, perspiciatis provident repellat sit.
-                                </p>
-                                <div class="tp-blog__btn">
-                                    <a href="blog.html">Подробнее</a>
+                    @foreach($articles as $article)
+                        <div class="swiper-slide">
+                            <div class="tp-blog mb-30">
+                                <div class="tp-blog__thumb p-relative fix">
+                                    <a href="#">
+                                        <img src="/{{$article->image}}" alt="{{$article->title}}"
+                                             style="object-fit: cover;"/>
+                                    </a>
+                                </div>
+                                <div class=" tp-blog__content">
+                                    <h5 class="tp-blog__title mb-20" style="height: 110px;">
+                                        <a href="{{route('blog.show', $article->slug)}}">{{$article->title}}</a>
+                                    </h5>
+                                    <div class="tp-blog__btn">
+                                        <a href="{{route('blog.show', $article->slug)}}">Подробнее</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tp-blog mb-30">
-                            <div class="tp-blog__thumb p-relative fix">
-                                <a href="#"><img src="/assets/img/blog/blog-thumb-01.jpg" alt="blog-item"/></a>
-                            </div>
-                            <div class="tp-blog__content">
-                                <h5 class="tp-blog__title mb-20">
-                                    <a href="blog-details.html">Заголовок</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi fuga hic illo,
-                                    incidunt modi mollitia quasi totam voluptas? Alias, error, itaque? Aperiam at cumque
-                                    earum exercitationem, perspiciatis provident repellat sit.
-                                </p>
-                                <div class="tp-blog__btn">
-                                    <a href="blog.html">Подробнее</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tp-blog mb-30">
-                            <div class="tp-blog__thumb p-relative fix">
-                                <a href="#"><img src="/assets/img/blog/blog-thumb-01.jpg" alt="blog-item"/></a>
-                            </div>
-                            <div class="tp-blog__content">
-                                <h5 class="tp-blog__title mb-20">
-                                    <a href="blog-details.html">Заголовок</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi fuga hic illo,
-                                    incidunt modi mollitia quasi totam voluptas? Alias, error, itaque? Aperiam at cumque
-                                    earum exercitationem, perspiciatis provident repellat sit.
-                                </p>
-                                <div class="tp-blog__btn">
-                                    <a href="blog.html">Подробнее</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tp-blog mb-30">
-                            <div class="tp-blog__thumb p-relative fix">
-                                <a href="#"><img src="/assets/img/blog/blog-thumb-01.jpg" alt="blog-item"/></a>
-                            </div>
-                            <div class="tp-blog__content">
-                                <h5 class="tp-blog__title mb-20">
-                                    <a href="blog-details.html">Заголовок</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi fuga hic illo,
-                                    incidunt modi mollitia quasi totam voluptas? Alias, error, itaque? Aperiam at cumque
-                                    earum exercitationem, perspiciatis provident repellat sit.
-                                </p>
-                                <div class="tp-blog__btn">
-                                    <a href="blog.html">Подробнее</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tp-blog mb-30">
-                            <div class="tp-blog__thumb p-relative fix">
-                                <a href="#"><img src="/assets/img/blog/blog-thumb-01.jpg" alt="blog-item"/></a>
-                            </div>
-                            <div class="tp-blog__content">
-                                <h5 class="tp-blog__title mb-20">
-                                    <a href="blog-details.html">Заголовок</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi fuga hic illo,
-                                    incidunt modi mollitia quasi totam voluptas? Alias, error, itaque? Aperiam at cumque
-                                    earum exercitationem, perspiciatis provident repellat sit.
-                                </p>
-                                <div class="tp-blog__btn">
-                                    <a href="blog.html">Подробнее</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </section>
     <!-- blog-area-end -->
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var reviewModal = document.getElementById('reviewModal');
+            reviewModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var reviewText = button.getAttribute('data-text');
+
+                var modalBody = reviewModal.querySelector('.modal-body');
+                modalBody.textContent = reviewText;
+            });
+        });
+    </script>
+@endpush

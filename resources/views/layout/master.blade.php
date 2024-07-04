@@ -75,10 +75,10 @@
                                         <ul class="sub-menu">
                                             <li><a href="{{route('home')}}">Центр коррекционных занятий</a></li>
                                             <li><a href="about.html">Иностранным и приехжим пациентам</a></li>
-                                            <li><a href="about.html">Отзывы</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="{{route('service.index')}}">Услуги</a></li>
+                                    <li><a href="{{route('blog.index')}}">Блог</a></li>
                                     <li><a href="{{route('contacts.index')}}">Контакты</a></li>
                                 </ul>
                             </nav>

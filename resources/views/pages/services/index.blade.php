@@ -38,7 +38,9 @@
                                     <i class="flaticon-blood-test"></i>
                                 </div>
                                 <div class="services-thumb-box__content">
-                                    <h5 class="services-thumb-box__title"><a href="{{route('service.show', $service->slug)}}">{{ $service->name  }}</a></h5>
+                                    <h5 class="services-thumb-box__title"><a
+                                            href="{{route('service.show', $service->slug)}}">{{ $service->name  }}</a>
+                                    </h5>
                                 </div>
                             </div>
                         </div>
@@ -48,32 +50,4 @@
         </div>
     </section>
     <!-- services-area-end -->
-
-    <!-- support-area -->
-    <section class="support-area grey-bg pt-125 pb-130">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-12 col-md-12 col-12">
-                    <div class="tp-section">
-                        <span class="tp-section__sub-title left-line right-line mb-20">запись на прием</span>
-                        <h3 class="tp-section__title mb-70">Запишитесь на данную услугу</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class=" col-xl-10 col-lg-12 col-md-12 col-12">
-                    <div class="tp-support-form text-center">
-                        <form action="#">
-                            <input type="text" placeholder="Введите ваше имя">
-                            <input type="text" placeholder="Введите ваш email">
-                        </form>
-                        <div class="tp-support-form__btn">
-                            <button class="tp-btn">Записаться на прием</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- support-area-end -->
 @endsection
