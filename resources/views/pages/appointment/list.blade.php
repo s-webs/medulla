@@ -433,7 +433,7 @@
 
         function fetchAppointments(email) {
             $.ajax({
-                url: '/user/appointments/' + encodeURIComponent(email),
+                url: '/user-appointments/' + encodeURIComponent(email),
                 method: 'GET',
                 success: function (response) {
                     var appointmentsList = $("#appointments-list");
