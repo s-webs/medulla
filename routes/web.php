@@ -28,7 +28,7 @@ Route::get('/blog/', [\App\Http\Controllers\BlogController::class, 'index'])->na
 Route::get('/blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
 Route::get('/pdf-generate/{appointment_id}', [AppointmentController::class, 'pdfGenerate'])->name('pdf-generate');
 Route::get('/user/appointments/', [AppointmentController::class, 'userAppointments'])->name('user.appointments');
-Route::get('/user/appointments/{email}', [AppointmentController::class, 'getUserAppointments'])->name('getUser.appointments');
+Route::get('/appointments/{email}', [AppointmentController::class, 'getUserAppointments'])->name('getUser.appointments');
 
 // API для записей
 Route::get('/get-available-times', [\App\Http\Controllers\CalendarController::class, 'getAvailableTimes'])->name('calendar.get-events');
