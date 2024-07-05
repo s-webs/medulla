@@ -426,7 +426,6 @@
                     current_fs.hide();
                     animating = false;
                 },
-                // This comes from the custom easing plugin
                 easing: 'easeInOutBack'
             });
         });
