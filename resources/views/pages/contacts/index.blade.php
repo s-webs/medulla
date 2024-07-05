@@ -31,7 +31,7 @@
                             </div>
                             <div class="tpcontact__address">
                                 <h4 class="tpcontact__title mb-15">Адрес</h4>
-                                <span>г. Шымкент, Аль-Фарабийский район, микрорайон Куншыгыс №52</span>
+                                <span>{{$settings[1]->value ?? "Adress"}}</span>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="tpcontact__address">
                                 <h4 class="tpcontact__title mb-15">Контактные номера</h4>
-                                <span><a href="tel:+7 775 888 10 98">+7 775 888 10 98</a></span>
+                                <span><a href="tel:{{$settings[2]->value ?? 0}}">{{$settings[2]->value ?? 0}}</a></span>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                             </div>
                             <div class="tpcontact__address">
                                 <h4 class="tpcontact__title mb-15">Время работы</h4>
-                                <span>Понедельник - Пятница <br>09:00 - 18:00</span>
+                                <span>{{$settings[9]->value ?? "Понедельник"}} - {{$settings[10]->value ?? "Пятница"}} <br>{{$settings[11]->value ?? "09:00"}} - {{$settings[12]->value ?? "18:00"}}</span>
                             </div>
                         </div>
                     </div>
@@ -61,47 +61,8 @@
                 <div class="col-lg-8 col-md-7 col-12">
                     <div class="contactform wow fadeInRight" data-wow-delay=".4s">
                         <h4 class="appoinment-title mb-25">
-                            <i class="fa-light fa-file-signature"></i>Запишитесь на прием
+                            <i class="fa-light fa-map-location"></i>Мы на карте
                         </h4>
-                        <div class="contactform__list mb-60">
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="visitor-form__input">
-                                            <input type="text" placeholder="Ваше ФИО"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="visitor-form__input">
-                                            <input type="email" placeholder="Ваша почта"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="visitor-form__input">
-                                            <input type="text" placeholder="Ваш номер телефона"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="visitor-form__input">
-                                            <input type="text" placeholder="д / м / г"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="visitor-form__input">
-													<textarea
-                                                        placeholder="Напишите нам сообщение (необязательно)"
-                                                        name="message"
-                                                    ></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-12">
-                                        <div class="visit-btn mt-20">
-                                            <button class="tp-btn">Отправить</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="tpcontactmap">

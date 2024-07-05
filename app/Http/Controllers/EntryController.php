@@ -6,6 +6,8 @@ use App\Models\Doctor;
 use App\Models\Entry;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Spatie\LaravelPdf\Facades\Pdf;
 
 class EntryController extends Controller
 {
@@ -54,7 +56,7 @@ class EntryController extends Controller
             ->count();
 
         if ($existingEntries > 0) {
-            return response()->json(['message' => 'Time slot already taken'], 409);
+            return response()->json(['message' => 'Данное время уже занято, приносим свои извинения'], 409);
         }
 
         // Создаем новую запись
@@ -68,7 +70,18 @@ class EntryController extends Controller
         $entry->status = $status;
         $entry->save();
 
-        return response()->json(['message' => 'Appointment created successfully']);
+        // Генерация pdf
+        $pdfName = 'appointment_' . $entry->id . '_' . time() . '.pdf';
+        $qrCode = QrCode::size(150)->generate('/user/appointments?email=' . $entry->email);
+        Pdf::view('pdf.appointment', compact('entry', 'qrCode'))
+            ->name($pdfName)
+            ->save('appointment-pdf/' . $pdfName)
+            ->download();
+        $entry->pdf = '/appointment-pdf/' . $pdfName;
+        $entry->save();
+
+        // Возвращаем JSON с сообщением и ссылкой на PDF
+        return response()->json(['message' => 'Запись успешно добавлена', 'pdf' => url($entry->pdf)]);
     }
 
 
@@ -93,6 +106,16 @@ class EntryController extends Controller
         $end = $start->copy()->addMinutes($doctor->reception_time);
         $entry->end = $end;
 
+        $entry->save();
+
+        // Генерация pdf
+        $pdfName = 'appointment_' . $entry->id . '_' . time() . '.pdf';
+        $qrCode = QrCode::size(150)->generate('/user/appointments?email=' . $entry->email);
+        Pdf::view('pdf.appointment', compact('entry', 'qrCode'))
+            ->name($pdfName)
+            ->save('appointment-pdf/' . $pdfName)
+            ->download();
+        $entry->pdf = '/appointment-pdf/' . $pdfName;
         $entry->save();
 
         return response()->json(['message' => 'Запись успешно обновлена']);

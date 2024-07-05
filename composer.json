@@ -13,6 +13,7 @@
         "laravel/telescope": "^5.1",
         "laravel/tinker": "^2.8",
         "moonshine/moonshine": "^2.16",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-pdf": "^1.5"
     },
     "require-dev": {

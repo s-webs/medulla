@@ -10,7 +10,8 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $articles = Article::all()->map(function ($article) {
+        $articles = Article::query()->paginate(10);
+        $articles->getCollection()->transform(function ($article) {
             $article->formatted_date = Carbon::parse($article->created_at)->locale('ru')->isoFormat('LL');
             return $article;
         });

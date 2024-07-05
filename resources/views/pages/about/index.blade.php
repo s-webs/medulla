@@ -5,7 +5,7 @@
              data-background="/images/clinic_05.png">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-7 col-md-7 col-12">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-12">
                     <div class="tp-breadcrumb">
                         <h2 class="tp-breadcrumb__title">О КЛИНИКЕ И МЕТОДЕ АЛЕКСАНДРЫ МАКСИМОВОЙ</h2>
                     </div>

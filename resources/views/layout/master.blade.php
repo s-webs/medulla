@@ -29,7 +29,6 @@
     @stack('styles')
 </head>
 <body>
-
 <!-- Scroll-top -->
 <button class="scroll-top scroll-to-target" data-target="html">
     <i class="fas fa-angle-up"></i>
@@ -54,12 +53,13 @@
                     <div class="col-lg-4">
                         <div class="header-top-mob">
                             <span>Консультация:</span>
-                            <a href="tel:+7 775 888 10 98"> +7 775 888 10 98</a>
+                            <a href="tel:{{$settings[2]->value}}"> {{$settings[2]->value}}</a>
                         </div>
                     </div>
                     <div class="col-lg-8">
                         <div class="header-time">
-                            <span><i class="fa-light fa-clock-ten"></i> ПН - ПТ  09:00 - 18:00</span>
+                            <span><i
+                                    class="fa-light fa-clock-ten"></i> {{$settings[7]->value ?? "ПН"}} - {{$settings[8]->value ?? "ПТ"}}  {{$settings[11]->value ?? "09:00"}} - {{$settings[12]->value ?? "18:00"}}</span>
                         </div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
             <div class="col-md-8 col-2">
                 <div class="tp-mobile-bar d-flex align-items-center justify-content-end">
                     <div class="tp-bt-btn-banner d-none d-md-block d-xl-none mr-30">
-                        <a class="tp-bt-btn" href="tel:+7 775 888 10 98">
+                        <a class="tp-bt-btn" href="tel:{{$settings[2]->value ?? 0}}">
                             <svg width="14" height="19" viewBox="0 0 14 19" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="2" cy="2" r="2" fill="#0E63FF"/>
@@ -122,7 +122,7 @@
                                 <circle cx="2" cy="7" r="2" fill="#0E63FF"/>
                                 <circle cx="2" cy="12" r="2" fill="#0E63FF"/>
                             </svg>
-                            <span>Консультация :</span>+7 775 888 10 98
+                            <span>Консультация: </span>{{$settings[2]->value ?? 0}}
                         </a>
                     </div>
                     <button class="tp-menu-toggle"><i class="far fa-bars"></i></button>
@@ -211,13 +211,15 @@
                         <h4 class="footer-widget__title mb-20">Контактная информация</h4>
                         <div class="footer-widget__info">
                             <ul>
-                                <li>г. Шымкент, Аль-Фарабийский район, микрорайон Куншыгыс №52</li>
-                                <li><a href="tel:+7 775 888 10 98">+7 775 888 10 98</a></li>
+                                <li>{{$settings[1]->value ?? "Adress"}}</li>
+                                <li><a href="tel:{{$settings[2]->value ?? 0}}">{{$settings[2]->value ?? 0}}</a></li>
                                 <li>
-                                    <a href="mailto:support@rstheme.com">medulla@medulla.com</a>
+                                    <a href="mailto:support@rstheme.com">{{$settings[6]->value ?? "email"}}m</a>
                                 </li>
-                                <li>Время работы: 08:00 - 18:00</li>
-                                <li>Понедельник - Пятница</li>
+                                <li>Время работы: {{$settings[11]->value ?? "09:00"}}
+                                    - {{$settings[12]->value ?? "18:00"}}</li>
+                                <li>{{$settings[9]->value ?? "Понедельник"}}
+                                    - {{$settings[10]->value ?? "Пятница"}}</li>
                             </ul>
                         </div>
                     </div>

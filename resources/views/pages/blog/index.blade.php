@@ -45,31 +45,46 @@
                         <div class="basic-pagination">
                             <nav>
                                 <ul>
-                                    <li>
-                                        <a href="blog.html">
-                                            <i class="fa-light fa-arrow-left-long"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="blog.html">1</a>
-                                    </li>
-                                    <li>
-                                        <span class="current">2</span>
-                                    </li>
-                                    <li>
-                                        <a href="blog.html">3</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog.html">...</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog.html">
-                                            <i class="fa-light fa-arrow-right-long"></i>
-                                        </a>
-                                    </li>
+                                    <!-- Previous Page Link -->
+                                    @if ($articles->onFirstPage())
+                                        <li class="disabled"><span><i class="fa-light fa-arrow-left-long"></i></span>
+                                        </li>
+                                    @else
+                                        <li><a href="{{ $articles->previousPageUrl() }}"><i
+                                                    class="fa-light fa-arrow-left-long"></i></a></li>
+                                    @endif
+
+                                    <!-- Pagination Elements -->
+                                    @foreach ($articles->links()->elements as $element)
+                                        <!-- "Three Dots" Separator -->
+                                        @if (is_string($element))
+                                            <li class="disabled"><span>{{ $element }}</span></li>
+                                        @endif
+
+                                        <!-- Array Of Links -->
+                                        @if (is_array($element))
+                                            @foreach ($element as $page => $url)
+                                                @if ($page == $articles->currentPage())
+                                                    <li><span class="current">{{ $page }}</span></li>
+                                                @else
+                                                    <li><a href="{{ $url }}">{{ $page }}</a></li>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    @endforeach
+
+                                    <!-- Next Page Link -->
+                                    @if ($articles->hasMorePages())
+                                        <li><a href="{{ $articles->nextPageUrl() }}"><i
+                                                    class="fa-light fa-arrow-right-long"></i></a></li>
+                                    @else
+                                        <li class="disabled"><span><i class="fa-light fa-arrow-right-long"></i></span>
+                                        </li>
+                                    @endif
                                 </ul>
                             </nav>
                         </div>
+
                     </div>
                 </div>
             </div>

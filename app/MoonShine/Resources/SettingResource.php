@@ -24,6 +24,17 @@ class SettingResource extends ModelResource
 
     protected string $title = 'Настройки';
 
+    protected bool $createInModal = true;
+
+    protected bool $editInModal = true;
+
+    protected bool $detailInModal = true;
+
+    public function redirectAfterSave(): string
+    {
+        return '/crm/resource/setting-resource/index-page';
+    }
+
     /**
      * @return list<MoonShineComponent|Field>
      */

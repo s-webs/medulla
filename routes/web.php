@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\EntryController;
 use Illuminate\Support\Facades\Route;
 use MoonShine\Http\Middleware\Authenticate;
@@ -25,7 +26,9 @@ Route::get('/appointment', [\App\Http\Controllers\AppointmentController::class, 
 Route::get('/appointment-single', [\App\Http\Controllers\AppointmentController::class, 'single'])->name('appointment.single');
 Route::get('/blog/', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
-
+Route::get('/pdf-generate/{appointment_id}', [AppointmentController::class, 'pdfGenerate'])->name('pdf-generate');
+Route::get('/user/appointments/', [AppointmentController::class, 'userAppointments'])->name('user.appointments');
+Route::get('/user/appointments/{email}', [AppointmentController::class, 'getUserAppointments'])->name('getUser.appointments');
 
 // API для записей
 Route::get('/get-available-times', [\App\Http\Controllers\CalendarController::class, 'getAvailableTimes'])->name('calendar.get-events');

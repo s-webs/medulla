@@ -386,6 +386,7 @@
             <fieldset>
                 <h2 class="fs-title">Успешно</h2>
                 <h3 class="fs-subtitle">Ваша запись успешно произведена!</h3>
+                <p id="countdown">3</p>
             </fieldset>
         </form>
         <!-- link to designify.me code snippets -->
@@ -530,7 +531,6 @@
         // Обработчик отправки формы
         $('#msform').on('submit', function (e) {
             e.preventDefault();
-            console.log('Submit')
             const doctorId = $('#doctor').val();
             const date = $('#date').val();
             const time = $('#time').val();
@@ -539,6 +539,11 @@
             const email = $('input[name="email"]').val();
             const status = 'scheduled';
             const start = `${date} ${time}:00`; // Формируем полное время начала
+
+            // Показать спиннер
+            const submitButton = $('input[name="submit"]');
+            submitButton.prop('disabled', true);
+            submitButton.val('Подождите...').prepend('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> ');
 
             $.ajax({
                 url: '/entries',
@@ -551,7 +556,9 @@
                     start: start,
                     status: status,
                 },
-                success: function () {
+                success: function (response) {
+                    const pdfUrl = response.pdf; // URL к PDF из ответа сервера
+                    window.open(pdfUrl, '_blank'); // Открыть PDF в новой вкладке
                     current_fs = $('fieldset:visible');
                     next_fs = current_fs.next();
 
@@ -573,12 +580,25 @@
                         complete: function () {
                             current_fs.hide();
                             animating = false;
+                            // Запуск обратного отсчета
+                            var countdown = 3;
+                            var countdownInterval = setInterval(function () {
+                                countdown--;
+                                $('#countdown').text(countdown);
+                                if (countdown <= 0) {
+                                    clearInterval(countdownInterval);
+                                    window.location.href = "{{ route('home') }}";
+                                }
+                            }, 1000);
                         },
                         easing: 'easeInOutBack'
                     });
                 },
                 error: function () {
                     alert('Ошибка при добавлении записи.');
+                    // Вернуть исходное состояние кнопки
+                    submitButton.prop('disabled', false);
+                    submitButton.val('Подтвердить').find('.spinner-border').remove();
                 }
             });
         });

@@ -273,11 +273,18 @@
                             <div class="visitor-form">
                                 <div class="col-lg-12 col-md-12 col-12">
                                     <div class="visit-btn mt-20">
-                                        <a href="{{ route('appointment.index') }}" class="tp-btn">Ознакомиться с
+                                        <a href="{{ route('appointment.index') }}" class="tp-btn"
+                                           style="display: block">Ознакомиться с
                                             тарифами</a>
                                     </div>
                                     <div class="visit-btn mt-20">
-                                        <a href="{{ route('appointment.single') }}" class="tp-btn">Перейти к форме для
+                                        <a href="{{ route('appointment.single') }}" class="tp-btn"
+                                           style="display: block">Перейти к форме для
+                                            записи</a>
+                                    </div>
+                                    <div class="visit-btn mt-20">
+                                        <a href="{{ route('user.appointments') }}" class="tp-btn"
+                                           style="display: block">Проверьте ваши
                                             записи</a>
                                     </div>
                                 </div>
