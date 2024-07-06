@@ -72,7 +72,7 @@ class EntryController extends Controller
 
         // Генерация pdf
         $pdfName = 'appointment_' . $entry->id . '_' . time() . '.pdf';
-        $qrCode = QrCode::size(150)->generate('/user/appointments?email=' . $entry->email);
+        $qrCode = QrCode::size(150)->generate(route('user.appointments') . '?email=' . $entry->email);
         Pdf::view('pdf.appointment', compact('entry', 'qrCode'))
             ->name($pdfName)
             ->save('appointment-pdf/' . $pdfName)
