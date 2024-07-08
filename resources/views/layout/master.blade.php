@@ -73,8 +73,12 @@
                                     <li><a href="{{route('home')}}">Главная</a></li>
                                     <li class="has-dropdown"><a href="{{route('about.index')}}">О клинике</a>
                                         <ul class="sub-menu">
-                                            <li><a href="{{route('home')}}">Центр коррекционных занятий</a></li>
-                                            <li><a href="about.html">Иностранным и приехжим пациентам</a></li>
+                                            <li><a href="{{route('about.index')}}">О клинике</a></li>
+                                            <li><a href="{{route('diagnostics.index')}}">Диагностика</a></li>
+                                            <li><a href="{{route('treatment.index')}}">Подход к лечению</a></li>
+                                            <li><a href="##">Центр коррекционных занятий</a></li>
+                                            <li><a href="##">Иностранным и приезжим пациентам</a></li>
+                                            <li><a href="{{route('team.index')}}">Наши специалисты</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="{{route('service.index')}}">Услуги</a></li>
@@ -197,7 +201,6 @@
                                 <li><a href="{{ route('service.index') }}">Услуги</a></li>
                                 <li><a href="##">Центр коррекционных занятий</a></li>
                                 <li><a href="##">Иностранным и приезжим пациентам</a></li>
-                                <li><a href="##">Отзывы</a></li>
                                 <li><a href="{{route('contacts.index')}}">Контакты</a></li>
                             </ul>
                         </div>

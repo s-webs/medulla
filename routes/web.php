@@ -19,11 +19,15 @@ use MoonShine\Http\Middleware\Authenticate;
 // Публичные маршруты
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about.index');
+Route::get('/treatment', [\App\Http\Controllers\AboutController::class, 'treatment'])->name('treatment.index');
+Route::get('/diagnostics', [\App\Http\Controllers\AboutController::class, 'diagnostics'])->name('diagnostics.index');
 Route::get('/uslugi', [\App\Http\Controllers\ServicesController::class, 'index'])->name('service.index');
 Route::get('/services/{slug}', [\App\Http\Controllers\ServicesController::class, 'show'])->name('service.show');
 Route::get('/contacts', [\App\Http\Controllers\ContactsController::class, 'index'])->name('contacts.index');
 Route::get('/appointment', [\App\Http\Controllers\AppointmentController::class, 'index'])->name('appointment.index');
 Route::get('/appointment-single', [\App\Http\Controllers\AppointmentController::class, 'single'])->name('appointment.single');
+Route::get('/team', [\App\Http\Controllers\TeamController::class, 'index'])->name('team.index');
+Route::get('team/{id}', [\App\Http\Controllers\TeamController::class, 'show'])->name('team.show');
 Route::get('/blog/', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
 Route::get('/pdf-generate/{appointment_id}', [AppointmentController::class, 'pdfGenerate'])->name('pdf-generate');

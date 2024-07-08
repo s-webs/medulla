@@ -10,6 +10,7 @@ use App\Models\Team;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Select;
 use MoonShine\Fields\Text;
+use MoonShine\Fields\TinyMce;
 use MoonShine\Resources\ModelResource;
 use MoonShine\Decorations\Block;
 use MoonShine\Fields\ID;
@@ -53,6 +54,10 @@ class TeamResource extends ModelResource
                         'Россия' => 'Россия'
                     ]),
                 Text::make('Город', 'city'),
+                TinyMce::make('Описание', 'description')
+                    ->hideOnIndex(),
+                TinyMce::make('Личный опыт (Биография)', 'biography')
+                    ->hideOnIndex(),
             ]),
         ];
     }

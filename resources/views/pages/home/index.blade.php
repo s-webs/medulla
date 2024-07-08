@@ -330,14 +330,14 @@
                         <div class="swiper-slide">
                             <div class="tp-team mb-50">
                                 <div class="tp-team__thumb fix">
-                                    <a href="#">
+                                    <a href="{{route('team.show', $team->id)}}">
                                         <img src="/{{$team->image}}" alt="{{$team->name}}"
                                              style="object-fit: cover; height: 300px"/>
                                     </a>
                                 </div>
                                 <div class="tp-team__content">
                                     <h4 class="tp-team__title mb-15" style="height: 100px">
-                                        <span>{{$team->name}}</span>
+                                        <a href="{{route('team.show', $team->id)}}">{{$team->name}}</a>
                                     </h4>
                                     <span class="tp-team__position mb-30">{{$team->speciality}}</span>
                                     <p>{{ $team->country }}, {{ $team->city }}</p>

@@ -1,23 +1,6 @@
 @extends('layout.master')
 @section('content')
-    <!-- breadcrumb-area -->
-    <section class="breadcrumb__area pt-100 pb-120 breadcrumb__overlay"
-             data-background="/images/clinic_05.png">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-7 col-12">
-                    <div class="tp-breadcrumb">
-                        <h2 class="tp-breadcrumb__title">Контакты</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-5 col-12">
-                    <div class="tp-breadcrumb__link d-flex align-items-center">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- breadcrumb-area-end -->
+    @include('components.breadcrumbs', ['title' => 'Контакты', 'image' => '/images/clinic_05.png'])
 
     <!-- contact-area -->
     <section class="contact-area pt-130 pb-115">

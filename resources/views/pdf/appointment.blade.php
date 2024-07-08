@@ -3,7 +3,7 @@
 @section('content')
     <div class="p-8">
         <div class="text-center">
-            <p class="font-bold text-lg">Талон на запись к врачу № ID</p>
+            <p class="font-bold text-lg">Талон на запись к врачу № {{$entry->id}}</p>
         </div>
 
         <div class="mt-12 border p-8">

@@ -46,6 +46,9 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     protected function menu(): array
     {
         return [
+            MenuItem::make('Вернуться на главную', '/')
+                ->blank(),
+            MenuDivider::make(),
             MenuItem::make('Команда', new TeamResource()),
             MenuItem::make('Галерея', new GalleryResource()),
             MenuItem::make('Услуги', new ServicesResource()),
