@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\EntryController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use MoonShine\Http\Middleware\Authenticate;
 
@@ -42,6 +43,7 @@ Route::get('reference', function () {
     return view('pages.reference.index');
 })->name('reference.index');
 
+Route::get('/test', [TestController::class, 'index'])->name('test.index');
 
 // Маршруты доступные только авторизованным
 Route::middleware('auth.moonshine')->group(function () {
