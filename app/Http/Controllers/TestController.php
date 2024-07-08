@@ -14,7 +14,8 @@ class TestController extends Controller
         $entry = Entry::with('doctor')->findOrFail(65);
         $qrCode = QrCode::size(150)->generate(route('user.appointments') . '?email=' . $entry->email);
         $html = view('pdf.appointment', compact('entry', 'qrCode'))->render();
-        $pdf = Browsershot::html($html)->save('appointment-pdf/test.pdf');
+        $pdf = Browsershot::url('https://s-webs.kz')
+            ->noSandbox();
         dd($pdf);
     }
 }
