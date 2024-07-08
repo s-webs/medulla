@@ -7,6 +7,7 @@ use App\Models\Entry;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Spatie\Browsershot\Browsershot;
 use Spatie\LaravelPdf\Facades\Pdf;
 
 class EntryController extends Controller
@@ -71,12 +72,11 @@ class EntryController extends Controller
         $entry->save();
 
         // Генерация pdf
+        $entry = Entry::with('doctor')->findOrFail(65);
         $pdfName = 'appointment_' . $entry->id . '_' . time() . '.pdf';
-        $qrCode = QrCode::size(150)->generate(route('user.appointments') . '?email=' . $entry->email);
-        Pdf::view('pdf.appointment', compact('entry', 'qrCode'))
-            ->name($pdfName)
-            ->save('appointment-pdf/' . $pdfName)
-            ->download();
+        $pdf = Browsershot::url(route('pdf-create', $entry->id))
+            ->noSandbox()
+            ->save('appointment-pdf/' . $pdfName);
         $entry->pdf = '/appointment-pdf/' . $pdfName;
         $entry->save();
 
@@ -109,12 +109,11 @@ class EntryController extends Controller
         $entry->save();
 
         // Генерация pdf
+        $entry = Entry::with('doctor')->findOrFail(65);
         $pdfName = 'appointment_' . $entry->id . '_' . time() . '.pdf';
-        $qrCode = QrCode::size(150)->generate('/user/appointments?email=' . $entry->email);
-        Pdf::view('pdf.appointment', compact('entry', 'qrCode'))
-            ->name($pdfName)
-            ->save('appointment-pdf/' . $pdfName)
-            ->download();
+        $pdf = Browsershot::url(route('pdf-create', $entry->id))
+            ->noSandbox()
+            ->save('appointment-pdf/' . $pdfName);
         $entry->pdf = '/appointment-pdf/' . $pdfName;
         $entry->save();
 

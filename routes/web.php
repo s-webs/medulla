@@ -44,6 +44,8 @@ Route::get('reference', function () {
 })->name('reference.index');
 
 Route::get('/test', [TestController::class, 'index'])->name('test.index');
+Route::get('/pdf-create/{id}', [\App\Http\Controllers\PdfController::class, 'generatePdf'])->name('pdf-create');
+
 
 // Маршруты доступные только авторизованным
 Route::middleware('auth.moonshine')->group(function () {
