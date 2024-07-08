@@ -13,9 +13,11 @@ class TestController extends Controller
     {
         $entry = Entry::with('doctor')->findOrFail(65);
         $qrCode = QrCode::size(150)->generate(route('user.appointments') . '?email=' . $entry->email);
-        $html = view('pdf.appointment', compact('entry', 'qrCode'))->render();
+//        $html = view('pdf.appointment', compact('entry', 'qrCode'))->render();
+        $pdfName = 'appointment_' . $entry->id . '_' . time() . '.pdf';
         $pdf = Browsershot::url('https://s-webs.kz')
-            ->noSandbox();
+            ->noSandbox()
+            ->save('appointment-pdf/' . $pdfName);
         dd($pdf);
     }
 }
