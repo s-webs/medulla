@@ -403,7 +403,7 @@
                     radio.parentElement.classList.add('selected');
                 }
 
-                // Если выбран тариф с id = 3, установить врача с id = 8 и заблокировать выбор
+                // Если выбран тариф с id = 2, установить врача с id = 8 и заблокировать выбор
                 if (radio.id === '3') {
                     $('#doctor').val('8').prop('disabled', true);
                 } else {
