@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use App\Models\Entry;
+use App\Models\Plan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -13,13 +14,15 @@ class AppointmentController extends Controller
 {
     public function index()
     {
-        return view('pages.appointment.index');
+        $plans = Plan::query()->where('active', true)->orderBy('order', 'asc')->get();
+        return view('pages.appointment.index', compact('plans'));
     }
 
     public function single()
     {
+        $plans = Plan::query()->where('active', true)->orderBy('order', 'asc')->get();
         $doctors = Doctor::query()->where('active', 1)->get();
-        return view('pages.appointment.single', compact('doctors'));
+        return view('pages.appointment.single', compact('doctors', 'plans'));
     }
 
     public function pdfGenerate($appointment_id)

@@ -26,49 +26,35 @@
                 </div>
             </div>
             <div class="row g-0 align-items-center">
-                <div class="col-lg-6 col-md-6">
-                    <div class="tp-price mb-40" style="min-height: 496px;">
-                        <div class="tp-price__heading mb-45">
-                            <div class="tp-price__content">
-                                <h4 class="tp-price__value mb-25">Медицинский</h4>
+                @foreach($plans as $plan)
+                    @if($plan->highlight)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="tp-price tp-white-price active mb-40" style="min-height: 740px;">
+                                <div class="tp-price__heading mb-45">
+                                    <div class="tp-price__content">
+                                        <h4 class="tp-price__value mb-25">{{$plan->name}}</h4>
+                                    </div>
+                                </div>
+                                <div class="tp-price__features tp-price-secondary mb-55">
+                                    {!! $plan->description !!}
+                                </div>
                             </div>
                         </div>
-                        <div class="tp-price__features mb-55">
-                            <ul>
-                                <li><strong>Длительность: 3 недели, Включено:</strong></li>
-                                <li>20 сеансов - гипокситерапия, под контролем Александры Максимовой</li>
-                                <li>3 сеанса - остеопатия под контролем нейроэнергокартирования, онлайн контроль
-                                    Александры
-                                    Максимовой
-                                </li>
-                                <li>10 сеансов - различные типы массажа</li>
-                                <li>15 процедур - лазеротерапия, фонофорез, электрофорез</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="tp-price mb-40" style="min-height: 496px;">
-                        <div class="tp-price__heading mb-45">
-                            <div class="tp-price__content">
-                                <h4 class="tp-price__value mb-25">Расширенный</h4>
+                    @else
+                        <div class="col-lg-4 col-md-4">
+                            <div class="tp-price mb-40" style="min-height: 600px;">
+                                <div class="tp-price__heading mb-45">
+                                    <div class="tp-price__content">
+                                        <h4 class="tp-price__value mb-25">{{ $plan->name }}</h4>
+                                    </div>
+                                </div>
+                                <div class="tp-price__features mb-55">
+                                    {!! $plan->description !!}
+                                </div>
                             </div>
                         </div>
-                        <div class="tp-price__features mb-55">
-                            <ul>
-                                <li><strong>Полностью входит весь комплекс медицинского пакета плюс:</strong></li>
-                                <li>20 сеансов - ежедневный АФК (адаптивный спорт)</li>
-                                <li>20 сеансов - нейрокоррекция</li>
-                                <li>20 сеансов - мозжечковая стимуляция</li>
-                                <li>20 сеансов - сенсорная терапия</li>
-                                <li>20 сеансов - логопед (комплекс включает форбрейн,
-                                    музыкотерапию, логоритмику, логопедический
-                                    массаж и занятия)
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
             </div>
         </div>
         <div style="text-align: center">

@@ -207,7 +207,6 @@
         color: white;
     }
 
-
     /* Not relevant to this form */
     .dme_link {
         margin-top: 30px;
@@ -261,6 +260,11 @@
         color: #ee0979;
     }
 
+    .radio-block.selected {
+        border-color: #ee0979;
+        color: #ee0979;
+    }
+
     .radio-content {
         font-size: 12px;
         color: #666;
@@ -270,6 +274,10 @@
     .radio-content p {
         border-bottom: 0.5px solid #acacac;
         margin: 0 0 2px 0;
+    }
+
+    .radio-content ol li, .radio-content ul li {
+        list-style: none;
     }
 </style>
 
@@ -301,36 +309,17 @@
                     <h3 class="fs-subtitle">Выберите подходящий для вас тариф</h3>
                 </div>
 
-                <div class="radio-block">
-                    <input type="radio" id="medical" name="tarif" value="medical">
-                    <label for="medical">
-                        <strong>Медицинский</strong>
-                        <div class="radio-content">
-                            <p><strong>Длительность: 3 недели, Включено:</strong></p>
-                            <p>20 сеансов - гипокситерапия, под контролем Александры Максимовой;</p>
-                            <p>3 сеанса - остеопатия под контролем нейроэнергокартирования, онлайн контроль Александры
-                                Максимовой;</p>
-                            <p>10 сеансов - различные типы массажа;</p>
-                            <p>15 процедур - лазеротерапия, фонофорез, электрофорез.</p>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="radio-block">
-                    <input type="radio" id="advanced" name="tarif" value="advanced">
-                    <label for="advanced">
-                        <strong>Расширенный</strong>
-                        <div class="radio-content">
-                            <p><strong>Полностью входит весь комплекс медицинского пакета плюс:</strong></p>
-                            <p>20 сеансов - ежедневный АФК (адаптивный спорт);</p>
-                            <p>20 сеансов - нейрокоррекция,</p>
-                            <p>20 сеансов - мозжечковая стимуляция;</p>
-                            <p>20 сеансов - сенсорная терапия;</p>
-                            <p>20 сеансов - логопед (комплекс включает форбрейн, музыкотерапию, логоритмику,
-                                логопедический массаж и занятия).</p>
-                        </div>
-                    </label>
-                </div>
+                @foreach($plans as $plan)
+                    <div class="radio-block">
+                        <input type="radio" id="{{$plan->id}}" name="tarif" value="{{$plan->name}}">
+                        <label for="{{$plan->id}}">
+                            <strong>{{$plan->name}}</strong>
+                            <div class="radio-content">
+                                {!! $plan->description !!}
+                            </div>
+                        </label>
+                    </div>
+                @endforeach
                 <br>
                 <input type="button" name="next" class="next action-button" value="Далее"/>
             </fieldset>
@@ -406,6 +395,23 @@
         }
     });
     $(document).ready(function () {
+
+        document.querySelectorAll('.radio-block input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                document.querySelectorAll('.radio-block').forEach(block => block.classList.remove('selected'));
+                if (radio.checked) {
+                    radio.parentElement.classList.add('selected');
+                }
+
+                // Если выбран тариф с id = 3, установить врача с id = 8 и заблокировать выбор
+                if (radio.id === '3') {
+                    $('#doctor').val('8').prop('disabled', true);
+                } else {
+                    $('#doctor').prop('disabled', false);
+                }
+            });
+        });
+
         // Обработчик изменения состояния радиокнопок
         $('input[name="tarif"]').change(function () {
             // Если выбрана одна из радиокнопок, активировать кнопку "Далее"

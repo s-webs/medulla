@@ -7,6 +7,7 @@ namespace App\Providers;
 use App\MoonShine\Resources\BlogResource;
 use App\MoonShine\Resources\DoctorsResource;
 use App\MoonShine\Resources\GalleryResource;
+use App\MoonShine\Resources\PlanResource;
 use App\MoonShine\Resources\ReviewResource;
 use App\MoonShine\Resources\ServicesResource;
 use App\MoonShine\Resources\SettingResource;
@@ -54,6 +55,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             MenuItem::make('Услуги', new ServicesResource()),
             MenuItem::make('Отзывы', new ReviewResource()),
             MenuItem::make('Блог', new BlogResource()),
+            MenuItem::make('Тарифы', new PlanResource()),
             MenuDivider::make(),
             MenuItem::make('Врачи для записи', new DoctorsResource()),
             MenuItem::make('Календарь записей', '/calendar')->blank(),
