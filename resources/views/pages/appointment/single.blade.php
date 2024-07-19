@@ -543,6 +543,7 @@
             const name = $('input[name="name"]').val();
             const phone = $('input[name="phone"]').val();
             const email = $('input[name="email"]').val();
+            const plan = $('input[name="tarif"]').val();
             const status = 'scheduled';
             const start = `${date} ${time}:00`; // Формируем полное время начала
 
@@ -561,6 +562,7 @@
                     email: email,
                     start: start,
                     status: status,
+                    plan: plan
                 },
                 success: function (response) {
                     const pdfUrl = response.pdf; // URL к PDF из ответа сервера

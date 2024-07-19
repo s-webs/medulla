@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use App\Models\Entry;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Spatie\Browsershot\Browsershot;
-use Spatie\LaravelPdf\Facades\Pdf;
 
 class EntryController extends Controller
 {
@@ -37,6 +37,7 @@ class EntryController extends Controller
         $phone = $request->input('phone');
         $email = $request->input('email');
         $status = $request->input('status');
+        $plan = $request->input('plan');
         $timeStart = Carbon::createFromFormat('Y-m-d H:i:s', $request->input('start'));
 
         // Получаем время приема врача в минутах
@@ -69,14 +70,15 @@ class EntryController extends Controller
         $entry->start = $timeStart;
         $entry->end = $timeEnd;
         $entry->status = $status;
+        $entry->plan = $plan;
         $entry->save();
 
         // Генерация pdf
-        $entry = Entry::with('doctor')->findOrFail(65);
         $pdfName = 'appointment_' . $entry->id . '_' . time() . '.pdf';
-        $pdf = Browsershot::url(route('pdf-create', $entry->id))
-            ->noSandbox()
-            ->save('appointment-pdf/' . $pdfName);
+
+        $qrCode = base64_encode(QrCode::format('svg')->size(150)->generate(route('user.appointments') . '?email=' . $entry->email));
+        $pdf = Pdf::loadView('pdf.appointment', compact('entry', 'qrCode'))
+            ->save(public_path('appointment-pdf/' . $pdfName));
         $entry->pdf = '/appointment-pdf/' . $pdfName;
         $entry->save();
 
@@ -109,11 +111,10 @@ class EntryController extends Controller
         $entry->save();
 
         // Генерация pdf
-        $entry = Entry::with('doctor')->findOrFail(65);
         $pdfName = 'appointment_' . $entry->id . '_' . time() . '.pdf';
-        $pdf = Browsershot::url(route('pdf-create', $entry->id))
-            ->noSandbox()
-            ->save('appointment-pdf/' . $pdfName);
+        $qrCode = base64_encode(QrCode::format('svg')->size(150)->generate(route('user.appointments') . '?email=' . $entry->email));
+        $pdf = Pdf::loadView('pdf.appointment', compact('entry', 'qrCode'))
+            ->save(public_path('appointment-pdf/' . $pdfName));
         $entry->pdf = '/appointment-pdf/' . $pdfName;
         $entry->save();
 
